@@ -86,3 +86,18 @@ body {
   }
 }
 
+/* Heartbeat SVG Animation */
+.heartbeat-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: ekg-draw 2.5s infinite linear;
+}
+
+@keyframes ekg-draw {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  10% { opacity: 1; }
+  50% { stroke-dashoffset: 0; opacity: 1; }
+  90% { stroke-dashoffset: -100; opacity: 0; }
+  100% { stroke-dashoffset: -100; opacity: 0; }
+}
+

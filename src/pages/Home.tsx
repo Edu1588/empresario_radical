@@ -114,10 +114,24 @@ export default function Home() {
 
         <div className="max-w-[1300px] w-full mx-auto flex flex-col lg:flex-row gap-16 lg:items-end relative z-20 pointer-events-auto px-6 md:px-12 pt-16 pb-24">
           <div className="w-full lg:w-3/5 z-20 relative">
-            <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-10 block">Manifesto de chão de loja</span>
+            <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Manifesto de chão de loja</span>
+            
+            <svg width="120" height="40" viewBox="0 0 120 40" className="mb-8 opacity-90">
+              <path 
+                d="M0 20 L 30 20 L 40 5 L 50 35 L 65 10 L 75 20 L 120 20" 
+                fill="none" 
+                stroke="#D9002B" 
+                strokeWidth="3" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                pathLength="100"
+                className="heartbeat-path"
+              />
+            </svg>
+
             <SplitText 
               text="DA BARRACA AOS 7 <br/> ANOS À <br/> CONSTRUÇÃO DE <br/> MAIS DE 100 LOJAS."
-              className="font-sans font-bold text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] leading-[1.05] text-white mb-6 tracking-tight uppercase"
+              className="font-sans font-bold text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] leading-[1.05] text-white mb-6 tracking-tight uppercase"
               delay={0.1}
             />
             <p className="font-sans font-semibold text-gray-300 text-base md:text-lg lg:text-xl max-w-xl leading-snug uppercase tracking-tight mt-6">
