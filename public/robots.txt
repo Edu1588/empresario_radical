@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://empresarioradical.com.br/sitemap.xml
