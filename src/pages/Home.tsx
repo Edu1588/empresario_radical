@@ -1,6 +1,7 @@
 import { Plus, Minus, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { SplitText } from "../components/ui/split-text";
 import { AnimatedButton } from "../components/ui/animated-button";
 
@@ -101,19 +102,19 @@ export default function Home() {
       {/* 2. HERO SECTION */}
       <header className="relative overflow-hidden min-h-[90vh] flex items-center pt-20">
         
-        {/* Hero Background Image */}
+        {/* Hero Background Image (Layer 0) */}
         <div className="absolute inset-0 z-0">
           <div 
             className="absolute inset-0 bg-cover bg-[70%_top] md:bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('https://res.cloudinary.com/ifuatk2z/image/upload/v1787853440/Edmarbanner3.png')` }}
+            style={{ backgroundImage: `url('https://res.cloudinary.com/ifuatk2z/image/upload/v1787953748/radical.png')` }}
           />
           {/* Left Black Gradient for Text Readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 md:via-[#0A0A0A]/70 to-transparent" />
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        <div className="max-w-[1300px] w-full mx-auto flex flex-col lg:flex-row gap-16 lg:items-end relative z-20 pointer-events-auto px-6 md:px-12 pt-16 pb-24">
-          <div className="w-full lg:w-3/5 z-20 relative">
+        <div className="max-w-[1300px] w-full mx-auto flex flex-col lg:flex-row gap-16 lg:items-end relative pointer-events-auto px-6 md:px-12 pt-16 pb-24">
+          <div className="w-full lg:w-3/5 z-10 relative">
             <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Manifesto de chão de loja</span>
             
             <svg width="120" height="40" viewBox="0 0 120 40" className="mb-8 opacity-90">
@@ -138,14 +139,27 @@ export default function Home() {
               SEU NEGÓCIO NÃO PRECISA TERMINAR NA CRISE.
             </p>
           </div>
-          <div className="w-full lg:w-2/5 lg:pb-4 z-20 relative">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            className="w-full lg:w-2/5 lg:pb-4 z-[99] relative"
+          >
             <p className="text-gray-400 mb-10 font-light text-base md:text-lg leading-relaxed">
               Com 58 anos de experiência no varejo, ajudamos empresários a recuperar clareza, caixa e direção para voltar a crescer de forma estruturada.
             </p>
             <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer">
               Converse com a equipe sobre o seu cenário
             </AnimatedButton>
-          </div>
+          </motion.div>
+        </div>
+
+        {/* Hero Foreground Overlap Image (Layer 20) */}
+        <div className="absolute inset-0 z-20 pointer-events-none">
+          <div 
+            className="absolute inset-0 bg-cover bg-[70%_top] md:bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('https://res.cloudinary.com/ifuatk2z/image/upload/v1787953748/radicalsobreposto.png')` }}
+          />
         </div>
 
         {/* Bottom Gradient Fade */}
@@ -178,11 +192,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 flex justify-end">
             <img 
-              src="https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=2070&auto=format&fit=crop" 
-              alt="Experiência Prática" 
-              className="w-full h-auto rounded-2xl grayscale opacity-80 object-cover aspect-square md:aspect-[4/3]"
+              src="https://res.cloudinary.com/ifuatk2z/image/upload/v1787959764/edmarBANNER4.png" 
+              alt="Edmar - 58 anos de experiência" 
+              className="w-full h-auto object-cover md:object-right aspect-square md:aspect-[4/3] rounded-2xl"
             />
           </div>
         </div>
