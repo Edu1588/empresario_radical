@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { SplitText } from "../components/ui/split-text";
 import { AnimatedButton } from "../components/ui/animated-button";
+import { InteractiveTravelCard } from "../components/ui/3d-card";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -176,6 +177,13 @@ export default function Home() {
       {/* 3. AUTORIDADE */}
       <section className="py-24 px-6 md:px-12 bg-[#0A0A0A] text-white">
         <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
+          <div className="w-full lg:w-1/2 flex justify-start perspective-[1000px]">
+            <InteractiveTravelCard 
+              imageUrl="https://res.cloudinary.com/ifuatk2z/image/upload/v1787959764/edmarBANNER4.png" 
+              className="w-full h-auto aspect-square md:aspect-[4/3] rounded-2xl shadow-none border-none bg-transparent"
+              imageClassName="object-cover md:object-right scale-x-[-1]"
+            />
+          </div>
           <div className="w-full lg:w-1/2">
             <h2 className="font-sans font-semibold text-5xl md:text-6xl lg:text-7xl text-white mb-10 leading-tight tracking-tight">58 anos de experiência no varejo.</h2>
             <p className="text-gray-400 font-light text-lg leading-relaxed mb-16">
@@ -191,13 +199,6 @@ export default function Home() {
                 <div className="text-xs font-sans font-bold uppercase tracking-widest text-gray-500">Décadas de Operação</div>
               </div>
             </div>
-          </div>
-          <div className="w-full lg:w-1/2 flex justify-end">
-            <img 
-              src="https://res.cloudinary.com/ifuatk2z/image/upload/v1787959764/edmarBANNER4.png" 
-              alt="Edmar - 58 anos de experiência" 
-              className="w-full h-auto object-cover md:object-right aspect-square md:aspect-[4/3] rounded-2xl"
-            />
           </div>
         </div>
       </section>
@@ -364,8 +365,14 @@ export default function Home() {
             <div className="w-full lg:w-3/4 space-y-24">
                {cases.map((c, i) => (
                   <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                     <div className="w-full md:w-1/2 overflow-hidden shrink-0">
-                        <img src={c.img} alt={c.title} className="w-full h-[300px] md:h-[400px] object-cover grayscale opacity-90 rounded-none"/>
+                     <div className="w-full md:w-1/2 overflow-hidden shrink-0 perspective-[1000px] flex justify-center items-center">
+                        <InteractiveTravelCard 
+                          title={c.title}
+                          subtitle={c.tag}
+                          imageUrl={c.img}
+                          className="w-full h-[300px] md:h-[400px] rounded-none shadow-none border-none bg-transparent"
+                          imageClassName="grayscale opacity-90 rounded-none"
+                        />
                      </div>
                      <div className="w-full md:w-1/2 flex flex-col justify-center">
                         <span className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] bg-gray-100 px-3 py-1.5 self-start mb-6 rounded-none">{c.tag}</span>
