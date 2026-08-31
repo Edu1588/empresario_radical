@@ -147,7 +147,7 @@ export default function Home() {
             className="w-full lg:w-2/5 lg:pb-4 z-[99] relative"
           >
             <p className="text-gray-400 mb-10 font-light text-base md:text-lg leading-relaxed">
-              Com 58 anos de experiência no varejo, ajudamos empresários a recuperar clareza, caixa e direção para voltar a crescer de forma estruturada.
+              Com +40 anos de experiência no varejo, ajudamos empresários a recuperar clareza, caixa e direção para voltar a crescer de forma estruturada.
             </p>
             <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer">
               Converse com a equipe sobre o seu cenário
@@ -185,7 +185,7 @@ export default function Home() {
             />
           </div>
           <div className="w-full lg:w-1/2">
-            <h2 className="font-sans font-semibold text-5xl md:text-6xl lg:text-7xl text-white mb-10 leading-tight tracking-tight">58 anos de experiência no varejo.</h2>
+            <h2 className="font-sans font-semibold text-5xl md:text-6xl lg:text-7xl text-white mb-10 leading-tight tracking-tight">+40 anos de experiência no varejo.</h2>
             <p className="text-gray-400 font-light text-lg leading-relaxed mb-16">
               A autoridade deve vir da experiência real; a credibilidade, da trajetória e dos resultados. O mercado tem muitos teóricos, mas poucos com a casca grossa de quem já quebrou, reconstruiu e escalou múltiplas empresas.
             </p>
@@ -195,7 +195,7 @@ export default function Home() {
                 <div className="text-xs font-sans font-bold uppercase tracking-widest text-gray-500">Lojas Construídas</div>
               </div>
               <div>
-                <div className="font-sans font-bold tracking-tighter text-6xl md:text-7xl text-[#D9002B] mb-2">5</div>
+                <div className="font-sans font-bold tracking-tighter text-6xl md:text-7xl text-[#D9002B] mb-2">4+</div>
                 <div className="text-xs font-sans font-bold uppercase tracking-widest text-gray-500">Décadas de Operação</div>
               </div>
             </div>
