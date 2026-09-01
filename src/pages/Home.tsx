@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { SplitText } from "../components/ui/split-text";
 import { AnimatedButton } from "../components/ui/animated-button";
 import { InteractiveTravelCard } from "../components/ui/3d-card";
+import { CasesScrollingAnimation } from "../components/ui/cases-scrolling-animation";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -59,7 +60,7 @@ export default function Home() {
       diagnosis: "Estoque mal dimensionado e equipe de vendas sem acompanhamento diário de metas.",
       intervention: "Reestruturação da rotina da gerência, metas diárias e liquidação estratégica de estoque.",
       result: "Aumento rápido no fluxo de caixa e retomada da capacidade de investimento da empresa.",
-      img: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGxvamElMjByb3VwYXxlbnwwfHwwfHx8Mg%3D%3D"
     },
     { 
       tag: "ESCALA E GESTÃO DE PESSOAS",
@@ -68,7 +69,7 @@ export default function Home() {
       diagnosis: "Falta de delegação, lideranças não preparadas e ausência de indicadores operacionais.",
       intervention: "Treinamento intensivo da liderança imediata e implementação de painéis de controle.",
       result: "O dono retomou o papel estratégico, e a empresa abriu duas novas filiais no mesmo semestre.",
-      img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG9mZmljZXxlbnwwfHwwfHx8Mg%3D%3D"
     },
     { 
       tag: "SOBREVIVÊNCIA EM CENÁRIO DE CRISE",
@@ -77,7 +78,7 @@ export default function Home() {
       diagnosis: "Posicionamento confuso e experiência do cliente abaixo do padrão exigido pelo novo mercado.",
       intervention: "Mudança pragmática no atendimento, readequação do mix de produtos e corte de custos fixos desnecessários.",
       result: "Estancamento da queda em 45 dias e retorno ao ponto de equilíbrio financeiro.",
-      img: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1925&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xpZW50ZXN8ZW58MHx8MHx8fDI%3D"
     }
   ];
 
@@ -106,12 +107,11 @@ export default function Home() {
         {/* Hero Background Image (Layer 0) */}
         <div className="absolute inset-0 z-0">
           <div 
-            className="absolute inset-0 bg-cover bg-[70%_top] md:bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('https://res.cloudinary.com/ifuatk2z/image/upload/v1787953748/radical.png')` }}
+            className="absolute inset-0 bg-cover bg-[70%_top] md:bg-center bg-no-repeat scale-x-[-1]"
+            style={{ backgroundImage: `url('https://res.cloudinary.com/ifuatk2z/image/upload/v1788218545/34455.jpg')` }}
           />
           {/* Left Black Gradient for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 md:via-[#0A0A0A]/70 to-transparent" />
-          <div className="absolute inset-0 bg-black/20" />
+          {/* Removed darkening overlays per request */}
         </div>
 
         <div className="max-w-[1300px] w-full mx-auto flex flex-col lg:flex-row gap-16 lg:items-end relative pointer-events-auto px-6 md:px-12 pt-16 pb-24">
@@ -136,31 +136,19 @@ export default function Home() {
               className="font-sans font-bold text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] leading-[1.05] text-white mb-6 tracking-tight uppercase"
               delay={0.1}
             />
-            <p className="font-sans font-semibold text-gray-300 text-base md:text-lg lg:text-xl max-w-xl leading-snug uppercase tracking-tight mt-6">
+            <p className="font-sans font-semibold text-gray-300 text-base md:text-lg lg:text-xl max-w-xl leading-snug uppercase tracking-tight mt-6 mb-10">
               SEU NEGÓCIO NÃO PRECISA TERMINAR NA CRISE.
             </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            >
+              <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer">
+                Converse com a equipe sobre o seu cenário
+              </AnimatedButton>
+            </motion.div>
           </div>
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-            className="w-full lg:w-2/5 lg:pb-4 z-[99] relative"
-          >
-            <p className="text-gray-400 mb-10 font-light text-base md:text-lg leading-relaxed">
-              Com +40 anos de experiência no varejo, ajudamos empresários a recuperar clareza, caixa e direção para voltar a crescer de forma estruturada.
-            </p>
-            <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer">
-              Converse com a equipe sobre o seu cenário
-            </AnimatedButton>
-          </motion.div>
-        </div>
-
-        {/* Hero Foreground Overlap Image (Layer 20) */}
-        <div className="absolute inset-0 z-20 pointer-events-none">
-          <div 
-            className="absolute inset-0 bg-cover bg-[70%_top] md:bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('https://res.cloudinary.com/ifuatk2z/image/upload/v1787953748/radicalsobreposto.png')` }}
-          />
         </div>
 
         {/* Bottom Gradient Fade */}
@@ -169,23 +157,98 @@ export default function Home() {
 
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 w-full p-4 bg-white/90 backdrop-blur-md border-t border-gray-100 z-50 md:hidden flex justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-        <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer" className="w-full text-center py-4">
+        <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer" className="w-full">
           Falar com a equipe
         </AnimatedButton>
       </div>
+      {/* 2. ECOSSISTEMA */}
+      <section className="py-32 px-6 md:px-12 bg-[#F5F5F5]" id="servicos">
+         <div className="max-w-[1300px] mx-auto">
+            <div className="mb-20">
+              <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-6 block">Ecossistema</span>
+              <h2 className="font-sans font-semibold tracking-tight text-5xl md:text-7xl text-[#0A0A0A] mb-6">Como trabalhar conosco</h2>
+              <p className="text-gray-500 font-light text-xl">O ecossistema de reconstrução e crescimento.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-200">
+               
+               {/* Mentoria */}
+               <div className="bg-white p-12 lg:p-16 flex flex-col border-b md:border-b-0 md:border-r border-gray-200">
+                  <span className="text-[#D9002B] text-[10px] font-bold uppercase tracking-[0.2em] mb-6 block">O Programa Principal</span>
+                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6">Mentoria em Varejo e Gestão</h3>
+                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Uma abordagem imersiva combinando reconstrução e recuperação financeira, processos claros de gestão, tomada de decisões guiada, acompanhamento do empreendedor e estratégia real de crescimento.</p>
+
+                  <div className="mb-10">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] mb-4">Escopo & Formato</h4>
+                    <ul className="space-y-4 text-sm text-gray-600 font-light">
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Diagnóstico inicial detalhado</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Encontros estratégicos diretos</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Plano de ação e indicadores</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Ciclos de 3 a 6 meses</li>
+                    </ul>
+                  </div>
+                  <div className="mb-12 flex-grow">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] mb-4">Para quem é</h4>
+                    <ul className="space-y-4 text-sm text-gray-600 font-light">
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Empresas com caixa travado</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Empreendedores em transição</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Operações prontas para escala</li>
+                    </ul>
+                  </div>
+
+                  <AnimatedButton href={getWhatsAppLink(msgMentoria)} target="_blank" rel="noopener noreferrer" className="w-full">
+                    Aplicar para Mentoria
+                  </AnimatedButton>
+               </div>
+
+               {/* Palestras */}
+               <div className="bg-white p-12 lg:p-16 flex flex-col border-b md:border-b-0 md:border-r border-gray-200">
+                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6 mt-10">Palestras Corporativas</h3>
+                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Destinadas a empresas corporativas que precisam de alinhamento, mudança comportamental e uma visão pragmática da operação para suas equipes.</p>
+
+                  <ul className="space-y-4 text-sm text-gray-600 font-light mb-12 flex-grow">
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: Evento presencial in-company.</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Público: Equipes comerciais, gerenciais e lideranças.</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Engajamento, vendas e cultura de resultados.</li>
+                  </ul>
+
+                  <a href={getWhatsAppLink(msgPalestra)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)]">
+                    Levar palestra para a empresa
+                  </a>
+               </div>
+
+               {/* Imersões */}
+               <div className="bg-white p-12 lg:p-16 flex flex-col">
+                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6 mt-10">Consultoria e Imersões</h3>
+                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Ambiente intensivo para mapeamento rápido de processos. A proposta é oferecer dedicação lado a lado para redesenhar a rota da empresa em curto prazo.</p>
+
+                  <ul className="space-y-4 text-sm text-gray-600 font-light mb-12 flex-grow">
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: Encontros intensivos (1 a 2 dias).</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Público: Grupos focados ou conselhos de diretoria.</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Diagnóstico imediato e plano de ação tático.</li>
+                  </ul>
+
+                  <a href={getWhatsAppLink(msgImersao)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)]">
+                    Consultar formatos
+               </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
 
       {/* 3. AUTORIDADE */}
       <section className="py-24 px-6 md:px-12 bg-[#0A0A0A] text-white">
         <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
           <div className="w-full lg:w-1/2 flex justify-start perspective-[1000px]">
             <InteractiveTravelCard 
-              imageUrl="https://res.cloudinary.com/ifuatk2z/image/upload/v1787959764/edmarBANNER4.png" 
+              imageUrl="https://res.cloudinary.com/ifuatk2z/image/upload/v1788214935/empresarioRadical6.png" 
               className="w-full h-auto aspect-square md:aspect-[4/3] rounded-2xl shadow-none border-none bg-transparent"
               imageClassName="object-cover md:object-right scale-x-[-1]"
             />
           </div>
           <div className="w-full lg:w-1/2">
-            <h2 className="font-sans font-semibold text-5xl md:text-6xl lg:text-7xl text-white mb-10 leading-tight tracking-tight">+40 anos de experiência no varejo.</h2>
+            <h2 className="font-sans font-semibold text-5xl md:text-6xl lg:text-7xl text-white mb-10 leading-tight tracking-tight">58 anos de experiência no varejo.</h2>
             <p className="text-gray-400 font-light text-lg leading-relaxed mb-16">
               A autoridade deve vir da experiência real; a credibilidade, da trajetória e dos resultados. O mercado tem muitos teóricos, mas poucos com a casca grossa de quem já quebrou, reconstruiu e escalou múltiplas empresas.
             </p>
@@ -195,8 +258,8 @@ export default function Home() {
                 <div className="text-xs font-sans font-bold uppercase tracking-widest text-gray-500">Lojas Construídas</div>
               </div>
               <div>
-                <div className="font-sans font-bold tracking-tighter text-6xl md:text-7xl text-[#D9002B] mb-2">4+</div>
-                <div className="text-xs font-sans font-bold uppercase tracking-widest text-gray-500">Décadas de Operação</div>
+                <div className="font-sans font-bold tracking-tighter text-6xl md:text-7xl text-[#D9002B] mb-2">50+</div>
+                <div className="text-xs font-sans font-bold uppercase tracking-widest text-gray-500">Anos de Operação</div>
               </div>
             </div>
           </div>
@@ -272,81 +335,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. ECOSSISTEMA */}
-      <section className="py-32 px-6 md:px-12 bg-[#F5F5F5]" id="servicos">
-         <div className="max-w-[1300px] mx-auto">
-            <div className="mb-20">
-              <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-6 block">Ecossistema</span>
-              <h2 className="font-sans font-semibold tracking-tight text-5xl md:text-7xl text-[#0A0A0A] mb-6">Como trabalhar conosco</h2>
-              <p className="text-gray-500 font-light text-xl">O ecossistema de reconstrução e crescimento.</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-200">
-               
-               {/* Mentoria */}
-               <div className="bg-white p-12 lg:p-16 flex flex-col border-b md:border-b-0 md:border-r border-gray-200">
-                  <span className="text-[#D9002B] text-[10px] font-bold uppercase tracking-[0.2em] mb-6 block">O Programa Principal</span>
-                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6">Mentoria Radical</h3>
-                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Uma abordagem imersiva combinando reconstrução e recuperação financeira, processos claros de gestão, tomada de decisões guiada, acompanhamento do empreendedor e estratégia real de crescimento.</p>
-
-                  <div className="mb-10">
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] mb-4">Escopo & Formato</h4>
-                    <ul className="space-y-4 text-sm text-gray-600 font-light">
-                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Diagnóstico inicial detalhado</li>
-                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Encontros estratégicos diretos</li>
-                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Plano de ação e indicadores</li>
-                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Ciclos de 3 a 6 meses</li>
-                    </ul>
-                  </div>
-                  <div className="mb-12 flex-grow">
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] mb-4">Para quem é</h4>
-                    <ul className="space-y-4 text-sm text-gray-600 font-light">
-                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Empresas com caixa travado</li>
-                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Empreendedores em transição</li>
-                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Operações prontas para escala</li>
-                    </ul>
-                  </div>
-
-                  <AnimatedButton href={getWhatsAppLink(msgMentoria)} target="_blank" rel="noopener noreferrer" className="w-full text-center py-5">
-                    Aplicar para Mentoria
-                  </AnimatedButton>
-               </div>
-
-               {/* Palestras */}
-               <div className="bg-white p-12 lg:p-16 flex flex-col border-b md:border-b-0 md:border-r border-gray-200">
-                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6 mt-10">Palestras</h3>
-                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Destinadas a empresas corporativas que precisam de alinhamento, mudança comportamental e uma visão pragmática da operação para suas equipes.</p>
-
-                  <ul className="space-y-4 text-sm text-gray-600 font-light mb-12 flex-grow">
-                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: Evento presencial in-company.</li>
-                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Público: Equipes comerciais, gerenciais e lideranças.</li>
-                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Engajamento, vendas e cultura de resultados.</li>
-                  </ul>
-
-                  <a href={getWhatsAppLink(msgPalestra)} target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-[#0A0A0A] text-[#0A0A0A] py-5 text-xs font-bold uppercase tracking-widest hover:bg-gray-50 transition-colors rounded-sm">
-                    Levar palestra para a empresa
-                  </a>
-               </div>
-
-               {/* Imersões */}
-               <div className="bg-white p-12 lg:p-16 flex flex-col">
-                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6 mt-10">Imersões</h3>
-                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Ambiente intensivo para mapeamento rápido de processos. A proposta é oferecer dedicação lado a lado para redesenhar a rota da empresa em curto prazo.</p>
-
-                  <ul className="space-y-4 text-sm text-gray-600 font-light mb-12 flex-grow">
-                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: Encontros intensivos (1 a 2 dias).</li>
-                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Público: Grupos focados ou conselhos de diretoria.</li>
-                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Diagnóstico imediato e plano de ação tático.</li>
-                  </ul>
-
-                  <a href={getWhatsAppLink(msgImersao)} target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-[#0A0A0A] text-[#0A0A0A] py-5 text-xs font-bold uppercase tracking-widest hover:bg-gray-50 transition-colors rounded-sm">
-                    Consultar formatos
-               </a>
-               </div>
-            </div>
-         </div>
-      </section>
-
       {/* 8. ENERGIA */}
       <section className="py-48 px-6 md:px-12 bg-[#0A0A0A] text-center">
          <div className="max-w-[800px] mx-auto">
@@ -362,30 +350,8 @@ export default function Home() {
                <h2 className="font-sans font-semibold tracking-tight text-4xl md:text-5xl lg:text-6xl text-[#0A0A0A] mb-6">Resultados Reais</h2>
                <p className="text-gray-500 font-light text-lg">Avaliações e cases. Dados em validação.</p>
             </div>
-            <div className="w-full lg:w-3/4 space-y-24">
-               {cases.map((c, i) => (
-                  <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                     <div className="w-full md:w-1/2 overflow-hidden shrink-0 perspective-[1000px] flex justify-center items-center">
-                        <InteractiveTravelCard 
-                          title={c.title}
-                          subtitle={c.tag}
-                          imageUrl={c.img}
-                          className="w-full h-[300px] md:h-[400px] rounded-none shadow-none border-none bg-transparent"
-                          imageClassName="grayscale opacity-90 rounded-none"
-                        />
-                     </div>
-                     <div className="w-full md:w-1/2 flex flex-col justify-center">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] bg-gray-100 px-3 py-1.5 self-start mb-6 rounded-none">{c.tag}</span>
-                        <h4 className="font-sans font-semibold text-2xl md:text-3xl text-[#0A0A0A] mb-8">{c.title}</h4>
-                        <div className="space-y-4 text-[15px] font-light text-gray-600 leading-relaxed">
-                           <p><strong className="font-semibold text-[#0A0A0A]">Contexto:</strong> {c.context}</p>
-                           <p><strong className="font-semibold text-[#0A0A0A]">Diagnóstico:</strong> {c.diagnosis}</p>
-                           <p><strong className="font-semibold text-[#0A0A0A]">Intervenção:</strong> {c.intervention}</p>
-                           <p><strong className="font-semibold text-[#0A0A0A]">Resultado:</strong> {c.result}</p>
-                        </div>
-                     </div>
-                  </div>
-               ))}
+            <div className="w-full lg:w-3/4">
+               <CasesScrollingAnimation cases={cases} />
             </div>
          </div>
       </section>

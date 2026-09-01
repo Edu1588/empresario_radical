@@ -12,11 +12,15 @@ interface AnimatedButtonProps {
 }
 
 export function AnimatedButton({ href, to, children, className, ...props }: AnimatedButtonProps) {
-  const baseClass = cn("btn-blue font-sans", className);
+  const baseClass = cn("btn-uiverse font-sans", className);
   const inner = (
     <>
-      <span>{children}</span>
-      <i className="animation"></i>
+      <div>
+        <span><p>{children}</p></span>
+      </div>
+      <div>
+        <span><p>{children}</p></span>
+      </div>
     </>
   );
 

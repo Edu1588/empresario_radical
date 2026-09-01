@@ -1,0 +1,75 @@
+      {/* 7. ECOSSISTEMA */}
+      <section className="py-32 px-6 md:px-12 bg-[#F5F5F5]" id="servicos">
+         <div className="max-w-[1300px] mx-auto">
+            <div className="mb-20">
+              <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-6 block">Ecossistema</span>
+              <h2 className="font-sans font-semibold tracking-tight text-5xl md:text-7xl text-[#0A0A0A] mb-6">Como trabalhar conosco</h2>
+              <p className="text-gray-500 font-light text-xl">O ecossistema de reconstrução e crescimento.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-200">
+               
+               {/* Mentoria */}
+               <div className="bg-white p-12 lg:p-16 flex flex-col border-b md:border-b-0 md:border-r border-gray-200">
+                  <span className="text-[#D9002B] text-[10px] font-bold uppercase tracking-[0.2em] mb-6 block">O Programa Principal</span>
+                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6">Mentoria em Varejo e Gestão</h3>
+                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Uma abordagem imersiva combinando reconstrução e recuperação financeira, processos claros de gestão, tomada de decisões guiada, acompanhamento do empreendedor e estratégia real de crescimento.</p>
+
+                  <div className="mb-10">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] mb-4">Escopo & Formato</h4>
+                    <ul className="space-y-4 text-sm text-gray-600 font-light">
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Diagnóstico inicial detalhado</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Encontros estratégicos diretos</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Plano de ação e indicadores</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Ciclos de 3 a 6 meses</li>
+                    </ul>
+                  </div>
+                  <div className="mb-12 flex-grow">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A] mb-4">Para quem é</h4>
+                    <ul className="space-y-4 text-sm text-gray-600 font-light">
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Empresas com caixa travado</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Empreendedores em transição</li>
+                      <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Operações prontas para escala</li>
+                    </ul>
+                  </div>
+
+                  <AnimatedButton href={getWhatsAppLink(msgMentoria)} target="_blank" rel="noopener noreferrer" className="w-full text-center py-5">
+                    Aplicar para Mentoria
+                  </AnimatedButton>
+               </div>
+
+               {/* Palestras */}
+               <div className="bg-white p-12 lg:p-16 flex flex-col border-b md:border-b-0 md:border-r border-gray-200">
+                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6 mt-10">Palestras Corporativas</h3>
+                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Destinadas a empresas corporativas que precisam de alinhamento, mudança comportamental e uma visão pragmática da operação para suas equipes.</p>
+
+                  <ul className="space-y-4 text-sm text-gray-600 font-light mb-12 flex-grow">
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: Evento presencial in-company.</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Público: Equipes comerciais, gerenciais e lideranças.</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Engajamento, vendas e cultura de resultados.</li>
+                  </ul>
+
+                  <a href={getWhatsAppLink(msgPalestra)} target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-[#0A0A0A] text-[#0A0A0A] py-5 text-xs font-bold uppercase tracking-widest hover:bg-gray-50 transition-colors rounded-sm">
+                    Levar palestra para a empresa
+                  </a>
+               </div>
+
+               {/* Imersões */}
+               <div className="bg-white p-12 lg:p-16 flex flex-col">
+                  <h3 className="font-sans font-semibold text-3xl text-[#0A0A0A] mb-6 mt-10">Consultoria e Imersões</h3>
+                  <p className="text-gray-500 font-light text-sm mb-10 leading-relaxed">Ambiente intensivo para mapeamento rápido de processos. A proposta é oferecer dedicação lado a lado para redesenhar a rota da empresa em curto prazo.</p>
+
+                  <ul className="space-y-4 text-sm text-gray-600 font-light mb-12 flex-grow">
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: Encontros intensivos (1 a 2 dias).</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Público: Grupos focados ou conselhos de diretoria.</li>
+                    <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Diagnóstico imediato e plano de ação tático.</li>
+                  </ul>
+
+                  <a href={getWhatsAppLink(msgImersao)} target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-[#0A0A0A] text-[#0A0A0A] py-5 text-xs font-bold uppercase tracking-widest hover:bg-gray-50 transition-colors rounded-sm">
+                    Consultar formatos
+               </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
