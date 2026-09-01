@@ -212,7 +212,7 @@ export default function Home() {
                     <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Engajamento, vendas e cultura de resultados.</li>
                   </ul>
 
-                  <a href={getWhatsAppLink(msgPalestra)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)]">
+                  <a href={getWhatsAppLink(msgPalestra)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-\[#113a9e\] transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)]">
                     Levar palestra para a empresa
                   </a>
                </div>
@@ -228,7 +228,7 @@ export default function Home() {
                     <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Diagnóstico imediato e plano de ação tático.</li>
                   </ul>
 
-                  <a href={getWhatsAppLink(msgImersao)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)]">
+                  <a href={getWhatsAppLink(msgImersao)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-\[#113a9e\] transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)]">
                     Consultar formatos
                </a>
                </div>

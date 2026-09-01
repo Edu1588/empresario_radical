@@ -69,11 +69,11 @@ body {
 }
 
 .btn-uiverse div:nth-child(2) {
- background-color: #21dc62; /* Lighter Green */
+ background-color: #1EAD52; /* Darker Green */
 }
 
 .btn-uiverse:hover {
- box-shadow: 0 0.625em 1em 0 rgba(33, 220, 98, 0.35);
+ box-shadow: 0 0.625em 1em 0 rgba(30, 173, 82, 0.4);
 }
 
 .btn-uiverse:hover div {
