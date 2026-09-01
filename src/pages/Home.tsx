@@ -96,7 +96,7 @@ export default function Home() {
           <a href="#servicos" className="hover:text-[#D9002B] transition-colors">Serviços</a>
           <a href="#legado" className="hover:text-[#D9002B] transition-colors">Resultados</a>
         </div>
-        <a href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer" className={`hidden md:inline-block px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors ${isScrolled ? 'bg-[#0A0A0A] text-white hover:bg-[#D9002B]' : 'bg-white text-[#0A0A0A] hover:bg-gray-200'}`}>
+        <a href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer" className={`hidden md:inline-block px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-[#25D366] text-white hover:bg-[#21dc62] shadow-[0_4px_14px_0_rgba(37,211,102,0.39)]`}>
           Falar com a equipe
         </a>
       </nav>
