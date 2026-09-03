@@ -30,7 +30,7 @@ const StickyProcessCard = ({
           scale,
           top: `calc(${i * 20}px)`,
         }}
-        className="relative origin-top bg-[#1E5AE8] p-8 md:p-12 rounded-3xl shadow-xl w-full border border-transparent flex flex-col justify-center"
+        className="relative origin-top bg-[#1E5AE8] p-8 md:p-12 rounded-3xl shadow-[0_-8px_30px_rgba(0,0,0,0.25)] w-full border-t border-white/10 flex flex-col justify-center"
       >
         <div className="text-white font-bold text-4xl md:text-5xl mb-6 opacity-80">0{i + 1}</div>
         <h4 className="font-bold text-2xl md:text-3xl mb-4 text-white">{step.title}</h4>
