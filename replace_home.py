@@ -1,169 +1,52 @@
-import { Plus, Minus, ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "motion/react";
-import { SplitText } from "../components/ui/split-text";
-import { AnimatedButton } from "../components/ui/animated-button";
-import { InteractiveTravelCard } from "../components/ui/3d-card";
-import { CasesScrollingAnimation } from "../components/ui/cases-scrolling-animation";
-import { ProcessScrollingAnimation } from "../components/ui/process-scrolling-animation";
+import re
 
+with open('src/pages/Home.tsx', 'r') as f:
+    content = f.read()
 
-export default function Home() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const getWhatsAppLink = (message: string) => {
-    const phone = "5519974070224";
-    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  };
-
-  const msgMentoria = "Olá, vim pelo site e quero entender se a Mentoria Radical faz sentido para o meu negócio.";
-  const msgPalestra = "Olá, quero levar uma palestra do Empresário Radical para minha empresa.";
-  const msgImersao = "Olá, gostaria de conhecer os formatos de imersão.";
-  const msgGeral = "Olá, vim pelo site e gostaria de conversar com a equipe do Empresário Radical.";
-
-  const faqs = [
-    {
-      question: "A Mentoria funciona para qualquer segmento?",
-      answer: "A base do trabalho é gestão empresarial, mas a adequação depende do momento, porte, desafio e disponibilidade para executar. Após entender seu cenário, indicaremos se a Mentoria é o caminho adequado."
-    },
-    {
-      question: "Qual é a diferença entre Mentoria e Imersão?",
-      answer: "A Mentoria acompanha decisões e execução ao longo de ciclos de 3 a 6 meses. A Imersão concentra diagnóstico, alinhamento e decisões em 1 a 2 dias. Em alguns casos, uma pode conduzir à outra."
-    },
-    {
-      question: "Quanto tempo dura a Mentoria?",
-      answer: "O formato-base prevê ciclos de 3 a 6 meses, definidos conforme o diagnóstico e a proposta aprovada."
-    },
-    {
-      question: "Como contratar uma palestra?",
-      answer: "Envie data, cidade, público, tema, objetivo e formato do evento. A equipe avaliará disponibilidade e enviará uma proposta personalizada."
-    },
-    {
-      question: "Qual é o primeiro passo?",
-      answer: "Preencher o formulário com o momento da empresa. A equipe analisa as informações e orienta o próximo movimento, sem obrigar você a escolher uma solução antes da conversa."
-    }
-  ];
-
-  const cases = [
-    { 
-      tag: "RECUPERAÇÃO DE CAIXA E PROCESSOS NO VAREJO",
-      title: "Retomada de Caixa em 45 Dias",
-      context: "Rede de lojas enfrentando estagnação nas vendas e margens espremidas.",
-      diagnosis: "Estoque mal dimensionado e equipe de vendas sem acompanhamento diário de metas.",
-      intervention: "Reestruturação da rotina da gerência, metas diárias e liquidação estratégica de estoque.",
-      result: "Aumento rápido no fluxo de caixa e retomada da capacidade de investimento da empresa.",
-      img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGxvamElMjByb3VwYXxlbnwwfHwwfHx8Mg%3D%3D"
-    },
-    { 
-      tag: "ESCALA E GESTÃO DE PESSOAS",
-      title: "Independência do Dono",
-      context: "Empresa de serviços estagnada no crescimento por dependência exclusiva do dono.",
-      diagnosis: "Falta de delegação, lideranças não preparadas e ausência de indicadores operacionais.",
-      intervention: "Treinamento intensivo da liderança imediata e implementação de painéis de controle.",
-      result: "O dono retomou o papel estratégico, e a empresa abriu duas novas filiais no mesmo semestre.",
-      img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG9mZmljZXxlbnwwfHwwfHx8Mg%3D%3D"
-    },
-    { 
-      tag: "SOBREVIVÊNCIA EM CENÁRIO DE CRISE",
-      title: "Estancamento da Queda em 45 Dias",
-      context: "Comércio local perdendo clientes rapidamente para novos concorrentes na região.",
-      diagnosis: "Posicionamento confuso e experiência do cliente abaixo do padrão exigido pelo novo mercado.",
-      intervention: "Mudança pragmática no atendimento, readequação do mix de produtos e corte de custos fixos desnecessários.",
-      result: "Estancamento da queda em 45 dias e retorno ao ponto de equilíbrio financeiro.",
-      img: "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xpZW50ZXN8ZW58MHx8MHx8fDI%3D"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-white text-[#0D0D0F] font-sans selection:bg-[#D9002B] selection:text-white">
-      
-      {/* 1. NAVIGATION */}
-      <nav className={`fixed w-full top-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-white border-b border-gray-100' : 'bg-transparent'}`}>
-        <div className={`text-lg md:text-xl font-sans font-bold tracking-widest uppercase flex items-center gap-1 transition-colors ${isScrolled ? 'text-[#0D0D0F]' : 'text-white'}`}>
-          EMPRESÁRIO RADICAL <span className="text-[#D9002B] text-2xl font-light leading-none">√</span>
-        </div>
-        <div className={`hidden lg:flex gap-8 text-[11px] font-bold tracking-[0.15em] uppercase transition-colors ${isScrolled ? 'text-gray-800' : 'text-gray-200'}`}>
-          <a href="#conceito" className="hover:text-[#D9002B] transition-colors">Empresário Radical</a>
+# Replace Menu
+menu_old = """<div className={`hidden lg:flex gap-8 text-[11px] font-bold tracking-[0.15em] uppercase transition-colors ${isScrolled ? 'text-gray-800' : 'text-gray-200'}`}>
+          <a href="#historia" className="hover:text-[#D9002B] transition-colors">História</a>
+          <a href="#filosofia" className="hover:text-[#D9002B] transition-colors">Filosofia</a>
+          <a href="#servicos" className="hover:text-[#D9002B] transition-colors">Serviços</a>
+          <a href="#legado" className="hover:text-[#D9002B] transition-colors">Resultados</a>
+        </div>"""
+menu_new = """<div className={`hidden lg:flex gap-8 text-[11px] font-bold tracking-[0.15em] uppercase transition-colors ${isScrolled ? 'text-gray-800' : 'text-gray-200'}`}>
           <a href="#edmar" className="hover:text-[#D9002B] transition-colors">Edmar</a>
           <a href="#solucoes" className="hover:text-[#D9002B] transition-colors">Soluções</a>
           <a href="#conteudos" className="hover:text-[#D9002B] transition-colors">Conteúdos</a>
-        </div>
-        <a href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer" className={`hidden md:inline-block px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-[#25D366] text-white hover:bg-[#21dc62] shadow-[0_4px_14px_0_rgba(37,211,102,0.39)]`}>
-          Falar com a equipe
-        </a>
-      </nav>
+          <a href="#conceito" className="hover:text-[#D9002B] transition-colors">Empresário Radical</a>
+        </div>"""
+content = content.replace(menu_old, menu_new)
 
-      {/* 2. HERO SECTION */}
-      <header className="relative overflow-hidden min-h-[90vh] flex items-center pt-20">
-        
-        {/* Hero Background Image (Layer 0) */}
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-[70%_top] md:bg-center bg-no-repeat scale-x-[-1]"
-            style={{ backgroundImage: `url('https://res.cloudinary.com/ifuatk2z/image/upload/v1788218545/34455.jpg')` }}
-          />
-          {/* Left Black Gradient for Text Readability */}
-          {/* Removed darkening overlays per request */}
-        </div>
-
-        <div className="max-w-[1300px] w-full mx-auto flex flex-col lg:flex-row gap-16 lg:items-end relative pointer-events-auto px-6 md:px-12 pt-16 pb-24">
-          <div className="w-full lg:w-3/5 z-10 relative">
-            <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Mentorias • Imersões • Palestras Corporativas</span>
-            
-            <svg width="120" height="40" viewBox="0 0 120 40" className="mb-8 opacity-90">
-              <path 
-                d="M0 20 L 30 20 L 40 5 L 50 35 L 65 10 L 75 20 L 120 20" 
-                fill="none" 
-                stroke="#D9002B" 
-                strokeWidth="3" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                pathLength="100"
-                className="heartbeat-path"
-              />
-            </svg>
-
-            <h1 className="font-sans font-bold text-5xl md:text-6xl lg:text-[70px] leading-[1.05] text-white mb-6 tracking-tight">
+# Replace Hero Content
+hero_old_regex = re.compile(r'<span className="text-\[#D9002B\] text-xs font-bold uppercase tracking-\[0\.2em\] mb-4 block">Manifesto de chão de loja</span>.*?QUERO DESCOBRIR O QUE ESTÁ TRAVANDO MINHA EMPRESA\s*</AnimatedButton>\s*</motion\.div>\s*</div>', re.DOTALL)
+# Wait, let me just replace the specific SplitText and P tag.
+hero_splittext = """<SplitText 
+              text="DA BARRACA AOS 7 <br/> ANOS À <br/> CONSTRUÇÃO DE <br/> MAIS DE 100 LOJAS."
+              className="font-sans font-bold text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] leading-[1.05] text-white mb-6 tracking-tight uppercase"
+              delay={0.1}
+            />
+            <p className="font-sans font-semibold text-gray-300 text-base md:text-lg lg:text-xl max-w-xl leading-snug uppercase tracking-tight mt-6 mb-10">
+              SEU NEGÓCIO NÃO PRECISA TERMINAR NA CRISE.
+            </p>"""
+hero_new_text = """<h1 className="font-sans font-bold text-5xl md:text-6xl lg:text-[70px] leading-[1.05] text-white mb-6 tracking-tight">
               Seu problema pode não ser falta de vendas.
             </h1>
             <p className="font-sans font-light text-gray-300 text-lg md:text-xl max-w-xl leading-relaxed mt-6 mb-10">
               Talvez sua empresa venda e não tenha margem. Cresça e não tenha gestão. Tenha equipe e continue dependendo de você. 
               <br/><br/>
               O Empresário Radical vai à raiz do negócio para transformar problemas em decisões e decisões em resultado.
-            </p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-            >
-              <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer">
-                QUERO DESCOBRIR O QUE ESTÁ TRAVANDO MINHA EMPRESA
-              </AnimatedButton>
-            </motion.div>
-          </div>
-        </div>
+            </p>"""
+content = content.replace(hero_splittext, hero_new_text)
 
-        {/* Bottom Gradient Fade */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent z-30 pointer-events-none"></div>
-      </header>
+content = content.replace('Manifesto de chão de loja', 'Mentorias • Imersões • Palestras Corporativas')
+content = content.replace('Converse com a equipe sobre o seu cenário', 'QUERO DESCOBRIR O QUE ESTÁ TRAVANDO MINHA EMPRESA')
 
-      {/* MOBILE STICKY CTA */}
-      <div className="fixed bottom-0 left-0 w-full p-4 bg-white/90 backdrop-blur-md border-t border-gray-100 z-50 md:hidden flex justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-        <AnimatedButton href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer" className="w-full">
-          Falar com a equipe
-        </AnimatedButton>
-      </div>
-      {/* 2. QUEBRA DE CRENÇA */}
+
+# We will isolate everything from `{/* 2. ECOSSISTEMA */}` to `{/* 9. RESULTADOS REAIS */}`
+sections_pattern = re.compile(r'\{\/\* 2\. ECOSSISTEMA \*\/\}.*?\{\/\* 9\. RESULTADOS REAIS \*\/\}', re.DOTALL)
+
+new_sections = """{/* 2. QUEBRA DE CRENÇA */}
       <section className="py-32 px-6 md:px-12 bg-[#F5F5F5]" id="sintomas">
          <div className="max-w-[1300px] mx-auto">
             <div className="mb-20 max-w-4xl">
@@ -181,41 +64,21 @@ export default function Home() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-gray-200 pt-16">
-               <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col group">
-                  <div className="h-40 overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&auto=format&fit=crop&q=60" alt="Caixa" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="p-8 flex-1">
-                     <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Caixa</h4>
-                     <p className="text-gray-500 font-light text-sm leading-relaxed">Vende, fatura e movimenta, mas o dinheiro nunca sobra.</p>
-                  </div>
+               <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                  <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Caixa</h4>
+                  <p className="text-gray-500 font-light text-sm leading-relaxed">Vende, fatura e movimenta, mas o dinheiro nunca sobra.</p>
                </div>
-               <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col group">
-                  <div className="h-40 overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60" alt="Gestão" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="p-8 flex-1">
-                     <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Gestão</h4>
-                     <p className="text-gray-500 font-light text-sm leading-relaxed">A empresa cresceu, mas os controles não acompanharam.</p>
-                  </div>
+               <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                  <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Gestão</h4>
+                  <p className="text-gray-500 font-light text-sm leading-relaxed">A empresa cresceu, mas os controles não acompanharam.</p>
                </div>
-               <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col group">
-                  <div className="h-40 overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop&q=60" alt="Pessoas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="p-8 flex-1">
-                     <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Pessoas</h4>
-                     <p className="text-gray-500 font-light text-sm leading-relaxed">Existe equipe, mas tudo ainda chega e depende do dono.</p>
-                  </div>
+               <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                  <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Pessoas</h4>
+                  <p className="text-gray-500 font-light text-sm leading-relaxed">Existe equipe, mas tudo ainda chega e depende do dono.</p>
                </div>
-               <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col group">
-                  <div className="h-40 overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&auto=format&fit=crop&q=60" alt="Crescimento" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="p-8 flex-1">
-                     <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Crescimento</h4>
-                     <p className="text-gray-500 font-light text-sm leading-relaxed">Existe oportunidade no mercado, mas falta estrutura interna.</p>
-                  </div>
+               <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                  <h4 className="text-[#0A0A0A] font-sans text-xl font-bold mb-4">Crescimento</h4>
+                  <p className="text-gray-500 font-light text-sm leading-relaxed">Existe oportunidade no mercado, mas falta estrutura interna.</p>
                </div>
             </div>
             <div className="mt-16 text-center">
@@ -334,9 +197,9 @@ export default function Home() {
                     <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: 1 a 2 dias intensivos.</li>
                     <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Sócios, conselho e lideranças.</li>
                   </ul>
-                  <AnimatedButton href={getWhatsAppLink(msgImersao)} target="_blank" rel="noopener noreferrer" className="w-full btn-blue relative z-10">
+                  <a href={getWhatsAppLink(msgImersao)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-[#113a9e] transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)] relative z-10">
                     Colocar minha empresa na mesa
-                  </AnimatedButton>
+                  </a>
                </div>
 
                {/* Palestras */}
@@ -350,9 +213,9 @@ export default function Home() {
                     <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Formato: Convenções e In-company.</li>
                     <li className="flex items-start gap-3"><span className="text-[#D9002B] text-[10px] mt-1.5">▪</span> Foco: Comportamento e Performance.</li>
                   </ul>
-                  <AnimatedButton href={getWhatsAppLink(msgPalestra)} target="_blank" rel="noopener noreferrer" className="w-full btn-blue">
+                  <a href={getWhatsAppLink(msgPalestra)} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#1E5AE8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-[#113a9e] transition-colors rounded-md shadow-[0_4px_14px_0_rgba(30,90,232,0.39)]">
                     Solicitar proposta de palestra
-                  </AnimatedButton>
+                  </a>
                </div>
 
             </div>
@@ -361,40 +224,40 @@ export default function Home() {
 
       {/* 7. MÉTODO */}
       <section className="py-32 px-6 md:px-12 bg-white">
-         <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row-reverse gap-20">
-            <div className="w-full lg:w-1/3 lg:sticky lg:top-32 self-start text-left lg:text-right">
-               <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-6 block">O Processo</span>
-               <h2 className="font-sans font-semibold tracking-tight text-4xl md:text-5xl lg:text-6xl text-[#0A0A0A] mb-6">Da raiz ao resultado.</h2>
-               <p className="text-gray-500 font-light text-lg mb-10">Diagnóstico sem execução vira relatório. Execução sem diagnóstico vira tentativa.</p>
-            </div>
-            <div className="w-full lg:w-2/3">
-               <ProcessScrollingAnimation steps={[
-                  { title: "Diagnosticar", desc: "Entender sem maquiar números." },
-                  { title: "Identificar a raiz", desc: "Separar causas de sintomas." },
-                  { title: "Priorizar", desc: "Definir o que precisa ser enfrentado." },
-                  { title: "Decidir", desc: "Transformar diagnóstico em decisões claras." },
-                  { title: "Executar", desc: "Responsáveis, prazos e indicadores." },
-                  { title: "Medir", desc: "Acompanhar impacto e corrigir rota." },
-                  { title: "Crescer", desc: "Construir crescimento sobre operação mais saudável." }
-               ]} />
-            </div>
+         <div className="max-w-[1000px] mx-auto text-center mb-20">
+            <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-6 block">O Processo</span>
+            <h2 className="font-sans font-semibold tracking-tight text-4xl md:text-5xl text-[#0A0A0A]">Da raiz ao resultado.</h2>
+         </div>
+         <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Diagnosticar", desc: "Entender sem maquiar números." },
+              { title: "Identificar a raiz", desc: "Separar causas de sintomas." },
+              { title: "Priorizar", desc: "Definir o que precisa ser enfrentado." },
+              { title: "Decidir", desc: "Transformar diagnóstico em decisões claras." },
+              { title: "Executar", desc: "Responsáveis, prazos e indicadores." },
+              { title: "Medir", desc: "Acompanhar impacto e corrigir rota." },
+              { title: "Crescer", desc: "Construir crescimento sobre operação mais saudável." }
+            ].map((step, idx) => (
+               <div key={idx} className="p-6 border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-[#D9002B] font-bold text-3xl mb-4">0{idx + 1}</div>
+                  <h4 className="font-bold text-lg mb-2 text-[#0A0A0A]">{step.title}</h4>
+                  <p className="text-sm text-gray-500">{step.desc}</p>
+               </div>
+            ))}
+         </div>
+         <div className="mt-16 text-center max-w-2xl mx-auto">
+            <p className="text-xl font-semibold text-[#0A0A0A]">Diagnóstico sem execução vira relatório. Execução sem diagnóstico vira tentativa.</p>
          </div>
       </section>
 
-      {/* 9. RESULTADOS REAIS */}
-      <section className="py-32 px-6 md:px-12 bg-white" id="legado">
-         <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row gap-20">
-            <div className="w-full lg:w-1/4 lg:sticky lg:top-32 self-start">
-               <h2 className="font-sans font-semibold tracking-tight text-4xl md:text-5xl lg:text-6xl text-[#0A0A0A] mb-6">Resultados Reais</h2>
-               <p className="text-gray-500 font-light text-lg">Avaliações e cases. Dados em validação.</p>
-            </div>
-            <div className="w-full lg:w-3/4">
-               <CasesScrollingAnimation cases={cases} />
-            </div>
-         </div>
-      </section>
+      {/* 9. RESULTADOS REAIS */}"""
 
-      {/* 10. CONTEÚDOS */}
+content = re.sub(sections_pattern, new_sections, content)
+
+# ----------------- Replace Conteudo, FAQ and CTA -----------------
+faq_pattern = re.compile(r'\{\/\* 10\. FAQ \*\/\}.*?\{\/\* 12\. FOOTER \*\/\}', re.DOTALL)
+
+new_faq_cta = """{/* 10. CONTEÚDOS */}
       <section className="py-32 px-6 md:px-12 bg-[#F5F5F5]" id="conteudos">
          <div className="max-w-[1300px] mx-auto text-center">
             <span className="text-[#D9002B] text-xs font-bold uppercase tracking-[0.2em] mb-6 block">Hub de Conteúdos</span>
@@ -463,41 +326,10 @@ export default function Home() {
          </div>
       </section>
 
-      {/* 13. FOOTER */}
-      <footer className="bg-white pt-24 pb-12 px-6 md:px-12">
-         <div className="max-w-[1300px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-24 mb-24">
-               <div className="md:col-span-2">
-                  <div className="text-xl font-sans font-bold tracking-widest uppercase flex items-center gap-1 mb-6 text-[#0D0D0F]">
-                     EMPRESÁRIO RADICAL <span className="text-[#D9002B] text-3xl font-light leading-none">√</span>
-                  </div>
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em] leading-loose max-w-sm">
-                     Mentoria e gestão de alto nível. Uma narrativa baseada em uma história de vida real com legado e resultados comprovados.
-                  </p>
-               </div>
-               <div>
-                  <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-8">Serviços</h5>
-                  <ul className="space-y-5 text-sm font-semibold text-[#0A0A0A]">
-                     <li><a href="#solucoes" className="hover:text-[#D9002B] transition-colors">Mentoria Radical</a></li>
-                     <li><a href="#solucoes" className="hover:text-[#D9002B] transition-colors">Palestras</a></li>
-                     <li><a href="#solucoes" className="hover:text-[#D9002B] transition-colors">Imersões</a></li>
-                  </ul>
-               </div>
-               <div>
-                  <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-8">Conectar</h5>
-                  <ul className="space-y-5 text-sm font-semibold text-[#0A0A0A]">
-                     <li><a href={getWhatsAppLink(msgGeral)} target="_blank" rel="noopener noreferrer" className="hover:text-[#D9002B] transition-colors">WhatsApp</a></li>
-                     <li><a href="https://www.instagram.com/empresario.radical/" target="_blank" rel="noopener noreferrer" className="hover:text-[#D9002B] transition-colors">Instagram</a></li>
-                     <li><a href="#" className="hover:text-[#D9002B] transition-colors">LinkedIn</a></li>
-                  </ul>
-               </div>
-            </div>
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-gray-100 text-[10px] text-gray-400 font-bold tracking-[0.2em] uppercase">
-               <p>© {new Date().getFullYear()} EMPRESÁRIO RADICAL. TODOS OS DIREITOS RESERVADOS.</p>
-               <Link to="/politica-de-privacidade" className="hover:text-[#0A0A0A] underline decoration-gray-300 underline-offset-4">Privacidade</Link>
-            </div>
-         </div>
-      </footer>
-    </div>
-  );
-}
+      {/* 13. FOOTER */}"""
+
+content = re.sub(faq_pattern, new_faq_cta, content)
+
+with open('src/pages/Home.tsx', 'w') as f:
+    f.write(content)
+

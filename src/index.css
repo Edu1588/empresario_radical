@@ -108,3 +108,17 @@ body {
   100% { stroke-dashoffset: -100; opacity: 0; }
 }
 
+
+/* Blue Variant for Animated Button */
+.btn-blue {
+  box-shadow: 0 0.625em 1em 0 rgba(30, 90, 232, 0.35);
+}
+.btn-blue div:nth-child(1) {
+  background-color: #1E5AE8; /* Brand Blue */
+}
+.btn-blue div:nth-child(2) {
+  background-color: #113a9e; /* Darker Blue */
+}
+.btn-blue:hover {
+  box-shadow: 0 0.625em 1em 0 rgba(30, 90, 232, 0.4);
+}
