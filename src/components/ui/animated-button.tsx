@@ -1,25 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { cn } from "../../lib/utils";
+import { Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 
-interface AnimatedButtonProps {
+interface AnimatedButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href?: string;
   to?: string;
   children: React.ReactNode;
   className?: string;
-  target?: string;
-  rel?: string;
 }
 
 export function AnimatedButton({ href, to, children, className, ...props }: AnimatedButtonProps) {
-  const baseClass = cn("btn-uiverse font-sans", className);
+  const baseClass = cn("btn-uiverse font-sans inline-flex", className);
   const inner = (
     <>
-      <div>
-        <span><p>{children}</p></span>
+      <span className="invisible block px-6 py-3">{children}</span>
+      <div className="anim-bg anim-bg-1">
+        <span>{children}</span>
       </div>
-      <div>
-        <span><p>{children}</p></span>
+      <div className="anim-bg anim-bg-2">
+        <span>{children}</span>
       </div>
     </>
   );
@@ -33,7 +32,7 @@ export function AnimatedButton({ href, to, children, className, ...props }: Anim
   }
   
   return (
-    <a href={href} className={baseClass} {...props as any}>
+    <a href={href} className={baseClass} {...props}>
       {inner}
     </a>
   );
