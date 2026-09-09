@@ -232,6 +232,17 @@ function Landing() {
             scrub: true,
           },
         });
+
+        gsap.to(".quote-char", {
+          opacity: 1,
+          duration: 0.1,
+          stagger: 0.03,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".quote-container",
+            start: "top 85%",
+          },
+        });
       }, root);
 
       if (typeof animate === "function") {
@@ -465,9 +476,12 @@ function Landing() {
               Empresário Radical — não para ensinar a partir de teorias distantes da realidade, mas
               para compartilhar princípios, métodos e decisões de quem conhece o outro lado da mesa.
             </p>
-            <p className="reveal font-semibold text-gray-900">
-              Porque existe uma diferença enorme entre conhecer gestão e precisar fazer uma empresa
-              funcionar.
+            <p className="quote-container text-3xl font-medium text-gray-800" style={{ fontFamily: "'Caveat', cursive" }}>
+              {'"Porque existe uma diferença enorme entre conhecer gestão e precisar fazer uma empresa funcionar."'.split("").map((char, index) => (
+                <span key={index} className="quote-char opacity-0 inline-block">
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
             </p>
             <div className="grid gap-3 pt-2 sm:grid-cols-3">
               {[
