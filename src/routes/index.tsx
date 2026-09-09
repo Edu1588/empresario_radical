@@ -39,19 +39,19 @@ const nav = [
 const sintomas = [
   {
     text: "Mais vendas com margem errada aumentam o esforço, não necessariamente o lucro.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955140/111.png"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/6365.jpg"
   },
   {
     text: "Mais pessoas sem processos aumentam a estrutura, não necessariamente a produtividade.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955141/222.png"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/4239672.jpg"
   },
   {
     text: "Mais clientes sem controle aumentam o faturamento, mas também o problema de caixa.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955141/333.png"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/70656.jpg"
   },
   {
     text: "Empresa que depende do dono para tudo até cresce. Mas dificilmente cresce saudável.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955141/444.png"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/47879.jpg"
   },
 ];
 
@@ -372,13 +372,6 @@ function Landing() {
               <div className="relative w-full aspect-[4/5] max-w-[280px] rounded-[20px] overflow-hidden border border-white/10 bg-[#111111] p-1 shadow-lg">
                 <div className="w-full h-full rounded-[16px] overflow-hidden relative">
                   <img src={s.img} alt={`Sintoma 0${index + 1}`} className="w-full h-full object-cover opacity-90 hover:scale-105 transition-all duration-500" />
-                  
-                  {/* Highlight Badge */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-[#0A0A0A]/90 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl text-center shadow-xl">
-                      <p className="text-lg font-extrabold tracking-widest text-[#D9002B]">0{index + 1}</p>
-                    </div>
-                  </div>
                 </div>
               </div>
               
