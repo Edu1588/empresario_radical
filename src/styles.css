@@ -242,10 +242,10 @@
   box-shadow: 0 0.625em 1em 0 rgba(217, 0, 43, 0.35);
 }
 .btn-red .anim-bg-1 {
-  background-color: #D9002B;
+  background-color: #e5372b;
 }
 .btn-red .anim-bg-2 {
-  background-color: #a80021;
+  background-color: #b3221b;
 }
 .btn-red:hover {
   box-shadow: 0 0.625em 1em 0 rgba(217, 0, 43, 0.4);
