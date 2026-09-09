@@ -201,6 +201,35 @@ function Landing() {
   const [aberta, setAberta] = useState<number | null>(0);
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [heroOpacity, setHeroOpacity] = useState(1);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (videoRef.current) {
+            if (entry.isIntersecting) {
+              videoRef.current.volume = 0.25; // Define o volume para 25% para não assustar o usuário
+              videoRef.current.play().catch(e => console.log("Auto-play prevented", e));
+            } else {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0.5 } // Play when at least 50% of the video is visible
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -550,12 +579,13 @@ function Landing() {
       <Section id="radical" bgClass="bg-[#111111]" textClass="text-white" kicker="O que é ser Radical" title="Radical não é sobre correr riscos. É sobre ir à raiz.">
         <div className="mt-8 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] items-center">
           <div className="reveal w-full max-w-md mx-auto lg:mx-0">
-            <div className="bg-[#0A0A0A] p-2 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 transform lg:-rotate-2 hover:rotate-0 transition-transform duration-500">
-              <img
-                src="https://res.cloudinary.com/ifuatk2z/image/upload/v1788214935/empresarioRadical6.png"
-                alt="O que é ser Radical"
-                className="w-full h-auto object-cover rounded-[1.4rem] opacity-90 hover:opacity-100 transition-opacity"
-                loading="lazy"
+            <div className="bg-[#0A0A0A] p-2 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10">
+              <video
+                ref={videoRef}
+                src="https://res.cloudinary.com/ifuatk2z/video/upload/v1788990263/edmarvideo.mp4"
+                loop
+                playsInline
+                className="w-full h-auto object-cover rounded-[1.4rem] aspect-[9/16]"
               />
             </div>
           </div>
