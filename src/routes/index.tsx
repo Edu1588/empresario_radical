@@ -596,11 +596,11 @@ function Landing() {
       </Section>
 
       {/* Processo */}
-      <CurveDivider topBg="bg-[#0A0A0A]" bottomBg="bg-[#D2CDC4]" />
-      <section id="processo" className="relative w-full bg-[#D2CDC4] overflow-hidden py-24 md:py-32">
+      <CurveDivider topBg="bg-[#0A0A0A]" bottomBg="bg-[#111111]" />
+      <section id="processo" className="relative w-full bg-[#111111] overflow-hidden py-24 md:py-32 border-y border-white/5">
         {/* Background Watermark Text */}
         <div className="absolute -bottom-8 md:-bottom-20 left-0 w-full text-center overflow-hidden pointer-events-none select-none flex justify-center z-0">
-          <span className="text-[14vw] md:text-[18vw] font-bold leading-none text-[#C5C0B7] opacity-60 tracking-tighter">
+          <span className="text-[14vw] md:text-[18vw] font-bold leading-none text-[#1A1A1A] opacity-60 tracking-tighter">
             PROCESSO
           </span>
         </div>
@@ -608,10 +608,10 @@ function Landing() {
         <div className="relative z-10 mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-16 lg:gap-24">
           {/* Left Column */}
           <div className="lg:w-1/3 flex flex-col justify-start">
-            <div className="reveal flex items-center gap-4 border-b border-gray-500 pb-3 mb-8 w-max">
-              <span className="text-xs uppercase tracking-[0.25em] font-bold text-gray-800">O PROGRAMA</span>
+            <div className="reveal flex items-center gap-4 pb-3 mb-8 w-max">
+              <span className="text-xs uppercase tracking-[0.25em] font-bold text-gray-400">O PROGRAMA</span>
             </div>
-            <h2 className="reveal text-5xl md:text-6xl font-medium tracking-tight text-gray-900" style={{ fontFamily: "'Sora', sans-serif" }}>
+            <h2 className="reveal text-5xl md:text-6xl font-medium tracking-tight text-white" style={{ fontFamily: "'Sora', sans-serif" }}>
               Como <br /> funciona o <br /> Processo
             </h2>
           </div>
@@ -620,14 +620,14 @@ function Landing() {
           <div className="lg:w-2/3 grid md:grid-cols-2 gap-x-12 gap-y-16 mt-4">
             {processo.map((p, index) => (
               <div key={index} className="reveal flex flex-col gap-3">
-                <h3 className="text-xl font-bold text-gray-900">{p.t}</h3>
-                <p className="text-[15px] font-medium leading-relaxed text-gray-700">{p.d}</p>
+                <h3 className="text-xl font-bold text-white">{p.t}</h3>
+                <p className="text-[15px] font-medium leading-relaxed text-gray-400">{p.d}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <CurveDivider topBg="bg-[#D2CDC4]" bottomBg="bg-[#0A0A0A]" />
+      <CurveDivider topBg="bg-[#111111]" bottomBg="bg-[#0A0A0A]" />
 
       {/* Cases */}
       <Section id="cases" bgClass="bg-[#0A0A0A]" textClass="text-white" kicker="Avaliações e Cases" title="Resultados construídos na raiz.">
