@@ -39,19 +39,19 @@ const nav = [
 const sintomas = [
   {
     text: "Mais vendas com margem errada aumentam o esforço, não necessariamente o lucro.",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955140/111.png"
   },
   {
     text: "Mais pessoas sem processos aumentam a estrutura, não necessariamente a produtividade.",
-    img: "https://images.unsplash.com/photo-1542744094-24638ea0b3b5?auto=format&fit=crop&q=80&w=600"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955141/222.png"
   },
   {
     text: "Mais clientes sem controle aumentam o faturamento, mas também o problema de caixa.",
-    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955141/333.png"
   },
   {
     text: "Empresa que depende do dono para tudo até cresce. Mas dificilmente cresce saudável.",
-    img: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&q=80&w=600"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788955141/444.png"
   },
 ];
 
@@ -222,6 +222,16 @@ function Landing() {
             ease: "sine.inOut",
           });
         });
+
+        gsap.to(".hero-bg-layer", {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: "#topo",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
       }, root);
 
       if (typeof animate === "function") {
@@ -268,6 +278,16 @@ function Landing() {
             maskImage: "radial-gradient(ellipse at 50% 0%, black, transparent 75%)",
           }}
         />
+      </div>
+
+      {/* Hero Background */}
+      <div className="hero-bg-layer fixed top-0 inset-x-0 h-[100vh] overflow-hidden pointer-events-none z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-[center_top] bg-no-repeat opacity-30 transform -scale-x-100 mix-blend-luminosity"
+          style={{ backgroundImage: "url('https://res.cloudinary.com/ifuatk2z/image/upload/v1788952730/1745.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
       </div>
 
       {/* Header */}
@@ -351,7 +371,7 @@ function Landing() {
               {/* Arch Image Container */}
               <div className="relative w-full aspect-[4/5] max-w-[280px] rounded-[20px] overflow-hidden border border-white/10 bg-[#111111] p-1 shadow-lg">
                 <div className="w-full h-full rounded-[16px] overflow-hidden relative">
-                  <img src={s.img} alt={`Sintoma 0${index + 1}`} className="w-full h-full object-cover opacity-70 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all duration-500" />
+                  <img src={s.img} alt={`Sintoma 0${index + 1}`} className="w-full h-full object-cover opacity-90 hover:scale-105 transition-all duration-500" />
                   
                   {/* Highlight Badge */}
                   <div className="absolute bottom-4 left-4 right-4">
@@ -725,10 +745,15 @@ function CurveDivider({ topBg, bottomBg }: { topBg: string; bottomBg: string }) 
     "bg-white": "text-white",
   };
   return (
-    <div className={`w-full ${bottomBg} leading-none`}>
+    <div className={`w-full ${bottomBg} leading-none relative`}>
       <svg viewBox="0 0 100 20" preserveAspectRatio="none" className={`w-full h-6 md:h-12 ${colorMap[topBg]} fill-current`}>
         <path d="M0,0 H100 V0 H55 C52,0 52,15 50,15 C48,15 48,0 45,0 H0 Z" />
       </svg>
+      <div className="absolute inset-x-0 top-0 flex justify-center pt-[2px] md:pt-[6px]">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 opacity-50 md:w-5 md:h-5">
+          <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
+      </div>
     </div>
   );
 }
