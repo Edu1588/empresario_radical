@@ -38,18 +38,22 @@ const nav = [
 
 const sintomas = [
   {
+    title: "Vendas e Margem",
     text: "Mais vendas com margem errada aumentam o esforço, não necessariamente o lucro.",
     img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/6365.jpg"
   },
   {
+    title: "Processos e Equipe",
     text: "Mais pessoas sem processos aumentam a estrutura, não necessariamente a produtividade.",
     img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/4239672.jpg"
   },
   {
+    title: "Crescimento e Caixa",
     text: "Mais clientes sem controle aumentam o faturamento, mas também o problema de caixa.",
     img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/70656.jpg"
   },
   {
+    title: "Dependência Central",
     text: "Empresa que depende do dono para tudo até cresce. Mas dificilmente cresce saudável.",
     img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/47879.jpg"
   },
@@ -376,44 +380,48 @@ function Landing() {
         <p className="reveal max-w-3xl text-gray-400">
           Às vezes, só faz o problema crescer.
         </p>
-                <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-16 grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
           {sintomas.map((s, index) => (
-            <article key={index} className="reveal flex flex-col items-center">
-              {/* Arch Image Container */}
-              <div className="relative w-full aspect-[4/5] max-w-[280px] rounded-[20px] overflow-hidden border border-white/10 bg-[#111111] p-1 shadow-lg">
-                <div className="w-full h-full rounded-[16px] overflow-hidden relative">
-                  <img src={s.img} alt={`Sintoma 0${index + 1}`} className="w-full h-full object-cover opacity-90 hover:scale-105 transition-all duration-500" />
-                </div>
-              </div>
+            <article key={index} className="reveal group relative overflow-hidden border border-[#D9002B]/30 aspect-[16/10] md:aspect-[16/9] shadow-2xl">
+              <img src={s.img} alt={`Sintoma 0${index + 1}`} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 ease-out mix-blend-luminosity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
               
-              {/* Text Content */}
-              <div className="mt-6 text-center w-full px-2">
-                <p className="text-sm font-semibold text-white leading-relaxed">
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex flex-col z-10">
+                <h3 className="text-2xl md:text-[22px] font-bold text-white mb-3" style={{ fontFamily: "'Sora', sans-serif" }}>{s.title}</h3>
+                <p className="text-[15px] font-medium text-gray-300 leading-relaxed max-w-[90%]">
                   {s.text}
                 </p>
               </div>
             </article>
           ))}
         </div>
-        <p className="reveal mt-10 max-w-3xl leading-relaxed text-gray-400">
-          Muitos empresários passam anos tentando resolver os sintomas. Buscam mais vendas quando
-          precisam recuperar margem. Cobram mais da equipe quando falta processo. Cortam custos
-          quando falta gestão. Trabalham mais quando deveriam decidir melhor.
-        </p>
-        <p className="reveal mt-4 text-lg font-semibold">
-          Antes de buscar a próxima solução, é preciso descobrir qual é o problema certo.
-        </p>
-        <div className="mt-10 grid gap-3 sm:grid-cols-2">
-          {cenarios.map((c) => (
-            <div key={c} className="reveal flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-gray-400">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
-              {c}
-            </div>
-          ))}
+        <div className="mx-auto mt-24 max-w-4xl text-center">
+          <p className="reveal text-lg leading-relaxed text-gray-400">
+            Muitos empresários passam anos tentando resolver os sintomas. Buscam mais vendas quando
+            precisam recuperar margem. Cobram mais da equipe quando falta processo. Cortam custos
+            quando falta gestão. Trabalham mais quando deveriam decidir melhor.
+          </p>
+          <p className="reveal mt-6 text-xl font-semibold text-white">
+            Antes de buscar a próxima solução, é preciso descobrir qual é o problema certo.
+          </p>
+          
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 text-left">
+            {cenarios.map((c) => (
+              <div key={c} className="reveal flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors p-6 text-sm text-gray-300 shadow-sm">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#D9002B]/10 text-[#D9002B]">
+                  <Activity className="h-5 w-5" />
+                </span>
+                <span className="leading-snug text-base">{c}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal mt-16 inline-block rounded-full border border-[#D9002B]/20 bg-[#D9002B]/5 px-8 py-5">
+            <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
+              É aqui que começa uma gestão radical. <span className="text-[#D9002B]">Não no sintoma. Na raiz.</span>
+            </p>
+          </div>
         </div>
-        <p className="reveal mt-10 text-xl font-extrabold">
-          É aqui que começa uma gestão radical. <span className="text-[#D9002B]">Não no sintoma. Na raiz.</span>
-        </p>
       </Section>
 
       {/* O que é ser Radical */}
@@ -588,21 +596,38 @@ function Landing() {
       </Section>
 
       {/* Processo */}
-      <CurveDivider topBg="bg-[#0A0A0A]" bottomBg="bg-white" />
-      <Section id="processo" bgClass="bg-white" textClass="text-gray-900" kicker="O Processo" title="Da raiz ao resultado.">
-        <p className="reveal text-gray-600">
-          Diagnóstico sem execução vira relatório. Execução sem diagnóstico vira tentativa.
-        </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {processo.map((p) => (
-            <div key={p.n} className="reveal bg-white shadow-sm border border-gray-200 relative overflow-hidden rounded-3xl p-7">
-              <span className="text-5xl font-extrabold text-[#D9002B]/20">{p.n}</span>
-              <h3 className="mt-3 text-lg font-bold">{p.t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-600">{p.d}</p>
-            </div>
-          ))}
+      <CurveDivider topBg="bg-[#0A0A0A]" bottomBg="bg-[#D2CDC4]" />
+      <section id="processo" className="relative w-full bg-[#D2CDC4] overflow-hidden py-24 md:py-32">
+        {/* Background Watermark Text */}
+        <div className="absolute -bottom-8 md:-bottom-20 left-0 w-full text-center overflow-hidden pointer-events-none select-none flex justify-center z-0">
+          <span className="text-[14vw] md:text-[18vw] font-bold leading-none text-[#C5C0B7] opacity-60 tracking-tighter">
+            PROCESSO
+          </span>
         </div>
-      </Section>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-16 lg:gap-24">
+          {/* Left Column */}
+          <div className="lg:w-1/3 flex flex-col justify-start">
+            <div className="reveal flex items-center gap-4 border-b border-gray-500 pb-3 mb-8 w-max">
+              <span className="text-xs uppercase tracking-[0.25em] font-bold text-gray-800">O PROGRAMA</span>
+            </div>
+            <h2 className="reveal text-5xl md:text-6xl font-medium tracking-tight text-gray-900" style={{ fontFamily: "'Sora', sans-serif" }}>
+              Como <br /> funciona o <br /> Processo
+            </h2>
+          </div>
+
+          {/* Right Column Grid */}
+          <div className="lg:w-2/3 grid md:grid-cols-2 gap-x-12 gap-y-16 mt-4">
+            {processo.map((p, index) => (
+              <div key={index} className="reveal flex flex-col gap-3">
+                <h3 className="text-xl font-bold text-gray-900">{p.t}</h3>
+                <p className="text-[15px] font-medium leading-relaxed text-gray-700">{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <CurveDivider topBg="bg-[#D2CDC4]" bottomBg="bg-[#0A0A0A]" />
 
       {/* Cases */}
       <Section id="cases" bgClass="bg-[#0A0A0A]" textClass="text-white" kicker="Avaliações e Cases" title="Resultados construídos na raiz.">
