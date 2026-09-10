@@ -68,24 +68,39 @@ const cenarios = [
 
 const historia = [
   {
-    title: "A Origem: O Tabuleiro da Mãe",
-    period: "O INÍCIO DE TUDO",
-    text: "Aos 7 anos de idade, minha formação empreendedora já havia começado. Não foi em uma sala de aula, mas nas ruas, com um tabuleiro preparado pela minha mãe. Foi ali que eu, Edmar, aprendi na prática o valor de cada centavo e a importância do trabalho e da base familiar como pilares inegociáveis para a vida."
+    title: "A Escala das Mega Lojas",
+    period: "O VAREJO NA PRÁTICA",
+    text: "Enquanto o mercado se acomodava em lojinhas convencionais, Edmar apostou na força das megaoperações. Construiu empreendimentos colossais de 3.000m² a 4.000m² com infraestrutura de ponta, provando que o interior comportava um varejo agressivo e de altíssimo padrão. Uma visão pioneira que mudou o mercado.",
+    stats: [
+      { value: 4000, prefix: "+", suffix: " m²", label: "Área por Loja" }
+    ]
   },
   {
-    title: "A Construção de Franquias",
-    period: "A ESCALA DO VAREJO",
-    text: "Com o tempo, a vontade de fazer acontecer transformou pequenos esforços em um império real. Ergui negócios do zero e escalei o modelo construindo redes de franquias de sucesso. O varejo me ensinou, dia a dia, a dinâmica pesada de liderar equipes, controlar o caixa e entender o cliente em grande escala."
+    title: "O Império Nacional",
+    period: "EXPANSÃO",
+    text: "O verdadeiro teste de um método é a sua capacidade de expansão. Edmar multiplicou o modelo, estruturando mais de uma centena de empresas e lojas espalhadas pelo país, gerenciando faturamentos gigantescos e liderando milhares de colaboradores na linha de frente.",
+    stats: [
+      { value: 100, prefix: "+", suffix: "", label: "Lojas e Empresas" },
+      { value: 250, prefix: "R$ ", suffix: " M", label: "Faturamento Anual (Est.)" }
+    ]
   },
   {
-    title: "Crises, Erros e Recomeços",
-    period: "A ESCOLA DA VIDA",
-    text: "A trajetória nunca é uma linha reta feita apenas de vitórias. Cometi erros pesados, enfrentei crises brutais no mercado de franquias e vi momentos em que as certezas desmoronaram. Precisar reconstruir tudo forjou a minha verdadeira visão de gestão. A prática, de fato, deixa cicatrizes."
+    title: "Crises e Liquidez Absoluta",
+    period: "A PROVA DE FOGO",
+    text: "Em Leme, durante a construção de uma mega loja, o caixa secou. Concorrentes zombaram. Edmar não recuou: liquidou produtos em uma operação cirúrgica de guerra, girou o estoque rapidamente, reergueu o caixa limpo e inaugurou a loja abarrotando a cidade.",
+    stats: [
+      { value: 100, prefix: "", suffix: "%", label: "Controle de Estoque" },
+      { value: 10, prefix: "R$ ", suffix: " M", label: "Gerados em Liquidez" }
+    ]
   },
   {
-    title: "58 Anos de Legado",
-    period: "HOJE",
-    text: "Quase seis décadas de atuação provaram que a autoridade não se constrói com um currículo impecável, mas com a capacidade de se levantar e ajustar a rota. Hoje, meu projeto de Mentoria nasceu para compartilhar princípios reais, testados e validados por quem conhece, na pele, o outro lado da mesa."
+    title: "58 Anos de Autoridade Real",
+    period: "O LEGADO HOJE",
+    text: "Tudo o que o mercado tenta ensinar hoje na teoria, Edmar viveu na prática, na dor e no sucesso. Esse império forjado a suor, riscos calculados e decisões pesadas é a base do seu projeto de Mentoria: ensinar exclusivamente o que ele testou e validou na trincheira.",
+    stats: [
+      { value: 58, prefix: "", suffix: "", label: "Anos de Varejo Raiz" },
+      { value: 3, prefix: "+", suffix: " Mil", label: "Colaboradores Geridos" }
+    ]
   }
 ];
 
@@ -194,6 +209,48 @@ const faq = [
 ];
 
 const temas = ["Gestão", "Vendas", "Finanças", "Liderança", "Estratégia", "Empreendedorismo"];
+
+
+function AnimatedCounter({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        let start = 0;
+        const end = value;
+        const duration = 2000;
+        const startTime = performance.now();
+        
+        const updateCounter = (currentTime: number) => {
+          const elapsedTime = currentTime - startTime;
+          const progress = Math.min(elapsedTime / duration, 1);
+          
+          // easeOutExpo
+          const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          
+          setCount(Math.floor(end * easeProgress));
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          }
+        };
+        
+        requestAnimationFrame(updateCounter);
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+    
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    
+    return () => observer.disconnect();
+  }, [value]);
+  
+  return <span ref={ref}>{prefix}{count}{suffix}</span>;
+}
 
 function Landing() {
   const root = useRef<HTMLDivElement>(null);
@@ -500,7 +557,7 @@ function Landing() {
                     
                     {/* Content Box */}
                     <div className={`w-full md:w-1/2 pl-16 md:pl-0 ${isEven ? 'md:pr-16 md:text-right' : 'md:pl-16 text-left'}`}>
-                      <div className="bg-[#0A0A0A]/90 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-[#1E5AE8]/50 hover:bg-[#0c1838]/90 transition-all duration-300 shadow-xl">
+                      <div className="bg-[#0A0A0A]/90 backdrop-blur-sm border border-white/5 rounded-2xl p-8 transition-all duration-300 shadow-xl flex flex-col h-full">
                         <span className="text-[#e5372b] text-xs font-bold tracking-[0.2em] uppercase mb-2 block">{h.period}</span>
                         <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "'Sora', sans-serif" }}>{h.title}</h3>
                         <p className="text-gray-400 leading-relaxed text-[15px]">
@@ -508,6 +565,38 @@ function Landing() {
                         </p>
                       </div>
                     </div>
+
+                    {/* Stats Box (Opposite side on Desktop) */}
+                    {h.stats && (
+                      <div className={`hidden md:flex w-full md:w-1/2 items-center ${isEven ? 'pl-16 justify-start text-left' : 'pr-16 justify-end text-right'}`}>
+                        <div className={`flex flex-col gap-8`}>
+                          {h.stats.map((stat, sIdx) => (
+                            <div key={sIdx} className="flex flex-col">
+                              <span className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white" style={{ fontFamily: "'Sora', sans-serif" }}>
+                                <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                              </span>
+                              <span className="text-sm uppercase tracking-widest text-[#e5372b] mt-2 font-bold">{stat.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Mobile Stats Box (Under content) */}
+                    {h.stats && (
+                      <div className="flex md:hidden w-full pl-16">
+                        <div className="flex flex-wrap gap-8 mt-2">
+                          {h.stats.map((stat, sIdx) => (
+                            <div key={sIdx} className="flex flex-col">
+                              <span className="text-4xl font-extrabold text-white" style={{ fontFamily: "'Sora', sans-serif" }}>
+                                <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                              </span>
+                              <span className="text-xs uppercase tracking-widest text-[#e5372b] mt-1 font-bold">{stat.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
