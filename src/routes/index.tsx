@@ -302,8 +302,8 @@ function Landing() {
       const scrollY = window.scrollY;
       setHeroScroll(scrollY);
       
-      const fadeStart = 50;
-      const fadeEnd = 600;
+      const fadeStart = 150;
+      const fadeEnd = 850;
       if (scrollY <= fadeStart) {
         setHeroOpacity(1);
       } else if (scrollY >= fadeEnd) {
@@ -474,7 +474,7 @@ function Landing() {
       {/* Hero */}
       <section id="topo" className="relative mx-auto max-w-6xl px-6 pb-24 pt-40 lg:pt-52 transition-opacity duration-75" style={{ opacity: heroOpacity }}>
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-          <div style={{ transform: `translateY(${heroScroll * 0.4}px)` }}>
+          <div style={{ transform: `translateY(${-heroScroll * 0.3}px)` }}>
             <p className="reveal hero-reveal bg-white shadow-sm border border-gray-200 mb-7 inline-flex rounded-full px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-gray-400">
               Mentorias • Imersões • Palestras Corporativas
             </p>
@@ -503,7 +503,7 @@ function Landing() {
             </div>
           </div>
 
-          <div className="reveal hero-reveal relative" style={{ transform: `translateY(${heroScroll * 0.15}px)` }}>
+          <div className="reveal hero-reveal relative" style={{ transform: `translateY(${-heroScroll * 0.15}px)` }}>
             <div className="bg-[#111111] border border-white/10 overflow-hidden rounded-[2rem] p-2">
               <div className="relative w-full aspect-[3/4] rounded-[1.6rem] overflow-hidden">
                 <img
