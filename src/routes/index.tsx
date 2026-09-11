@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatedButton } from "@/components/ui/animated-button";
-import { Activity, ArrowUp } from "lucide-react";
+import { Activity, ArrowUp, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CoverFlowCarousel } from "@/components/ui/3-d-coverflow-carousel";
 import mentor from "@/assets/mentor.jpg";
@@ -259,6 +259,7 @@ function Landing() {
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [heroOpacity, setHeroOpacity] = useState(1);
   const [heroScroll, setHeroScroll] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -267,7 +268,7 @@ function Landing() {
         entries.forEach((entry) => {
           if (videoRef.current) {
             if (entry.isIntersecting) {
-              videoRef.current.volume = 0.25; // Define o volume para 25% para não assustar o usuário
+              videoRef.current.volume = 1; // Deixa o volume no max, mas começa mutado
               videoRef.current.play().catch(e => console.log("Auto-play prevented", e));
             } else {
               videoRef.current.pause();
@@ -525,7 +526,7 @@ function Landing() {
       <section id="autoridade" className="relative w-full bg-[#111111] text-white py-24 md:py-32 overflow-hidden ">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#111111]/50 z-10" />
-          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/v1788975668/edmar1.png')] bg-cover bg-center bg-fixed opacity-100 z-0" />
+          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/v1788975668/edmar1.png')] bg-cover bg-[position:80%_top] md:bg-center bg-fixed opacity-100 z-0" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="reveal text-center max-w-3xl mx-auto mb-20">
@@ -675,14 +676,22 @@ function Landing() {
       <Section id="radical" bgClass="bg-[#111111]" textClass="text-white" kicker="O que é ser Radical" title="Radical não é sobre correr riscos. É sobre ir à raiz.">
         <div className="mt-8 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] items-center">
           <div className="reveal w-full max-w-md mx-auto lg:mx-0">
-            <div className="bg-[#0A0A0A] p-2 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10">
+            <div className="relative bg-[#0A0A0A] p-2 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 group">
               <video
                 ref={videoRef}
                 src="https://res.cloudinary.com/ifuatk2z/video/upload/v1788990263/edmarvideo.mp4"
                 loop
                 playsInline
+                muted={isMuted}
                 className="w-full h-auto object-cover rounded-[1.4rem] aspect-[9/16]"
               />
+              <button
+                onClick={() => setIsMuted(!isMuted)}
+                className="absolute bottom-6 right-6 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full backdrop-blur-md transition-all shadow-lg border border-white/10 z-10"
+                aria-label={isMuted ? "Ativar som" : "Desativar som"}
+              >
+                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              </button>
             </div>
           </div>
           <div className="flex flex-col gap-6">
@@ -951,7 +960,7 @@ function Landing() {
           <p className="mx-auto mt-4 sm:mt-6 max-w-xl text-sm sm:text-base text-gray-400">
             O primeiro passo não é mudar tudo. É descobrir onde realmente está a raiz.
           </p>
-          <AnimatedButton href="#contato" className="btn-whatsapp w-fit mx-auto mt-8 sm:mt-9 [&>span.invisible]:px-5 sm:[&>span.invisible]:px-9 [&>span.invisible]:py-3 sm:[&>span.invisible]:py-4 text-[9px] sm:text-xs md:text-sm">
+          <AnimatedButton href="#contato" className="btn-whatsapp w-full max-w-[280px] sm:max-w-none sm:w-fit mx-auto mt-8 sm:mt-9 [&>span.invisible]:px-4 sm:[&>span.invisible]:px-9 [&>span.invisible]:py-4 text-[10px] sm:text-xs md:text-sm">
             QUERO FALAR SOBRE MINHA EMPRESA
           </AnimatedButton>
           <p className="mt-5 text-[10px] sm:text-xs text-gray-400">
