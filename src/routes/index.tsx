@@ -72,7 +72,7 @@ const historia = [
     period: "O VAREJO NA PRÁTICA",
     text: "Enquanto o mercado se acomodava em lojinhas convencionais, Edmar apostou na força das megaoperações. Construiu empreendimentos colossais de 3.000m² a 4.000m² com infraestrutura de ponta, provando que o interior comportava um varejo agressivo e de altíssimo padrão. Uma visão pioneira que mudou o mercado.",
     stats: [
-      { value: 4000, prefix: "+", suffix: " m²", label: "Área por Loja" }
+      { value: 350, prefix: "+", suffix: " mil m²", label: "De lojas construídas" }
     ]
   },
   {
@@ -960,9 +960,12 @@ function Landing() {
         </div>
       </section>
 
-      <footer className="border-t border-gray-100 py-10 text-center text-xs text-gray-400">
-        <p className="font-bold text-white">EMPRESÁRIO RADICAL</p>
-        <p className="mt-2">Mentorias • Imersões • Palestras Corporativas</p>
+      <footer className="border-t border-white/10 py-12 text-center text-xs text-gray-500">
+        <p className="font-bold text-white uppercase tracking-widest">Empresário Radical</p>
+        <p className="mt-2 text-gray-400">Mentorias • Imersões • Palestras Corporativas</p>
+        <p className="mt-10 opacity-70">
+          Desenvolvido por <a href="https://www.fabricapublicidade.com.br/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors underline decoration-white/20 underline-offset-4">Fábrica Publicidade Digital</a>
+        </p>
       </footer>
 
       {/* Back to top button */}
