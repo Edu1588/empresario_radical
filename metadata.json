@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Empresário Radical",
+  "description": "Gestão que vai à raiz do negócio para transformar problemas em decisões e decisões em resultado.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
