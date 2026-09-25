@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#111111" />
-  <path d="M 25,50 L 50,25 L 75,50 L 50,75 Z" fill="#D9002B" />
-  <text x="50" y="55" font-family="sans-serif" font-weight="900" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle">ER</text>
-</svg>
