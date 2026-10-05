@@ -508,7 +508,7 @@ function Landing() {
             <div className="bg-[#111111] border border-white/10 overflow-hidden rounded-[2rem] p-2">
               <div className="relative w-full aspect-[3/4] rounded-[1.6rem] overflow-hidden">
                 <img
-                  src="https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788975669/edmar9.png"
+                  src="https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1791236200/edmar9_1.png"
                   alt="Edmar, mentor do Empresário Radical"
                   loading="eager"
                   fetchPriority="high"
@@ -531,7 +531,7 @@ function Landing() {
       <section id="autoridade" className="relative w-full bg-[#111111] text-white py-24 md:py-32 overflow-hidden ">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#111111]/50 z-10" />
-          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_1200/v1788975668/edmar1.png')] bg-cover bg-[position:80%_top] md:bg-center bg-fixed opacity-100 z-0" />
+          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_1200/v1791236200/edmar1_1.png')] bg-cover bg-[position:80%_top] md:bg-center bg-fixed opacity-100 z-0" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="reveal text-center max-w-3xl mx-auto mb-20">
