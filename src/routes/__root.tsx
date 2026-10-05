@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Caveat:wght@500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Caveat:wght@600&display=swap",
       },
       {
         rel: "stylesheet",
@@ -110,11 +110,29 @@ function RootShell({ children }: { children: ReactNode }) {
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ymelnumr37");`,
+            __html: `(function(){
+  function initClarity(){
+    if(window.clarity) return;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ymelnumr37");
+  }
+  if (typeof window !== "undefined") {
+    if (document.readyState === "complete") {
+      setTimeout(initClarity, 1500);
+    } else {
+      window.addEventListener("load", function(){
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(initClarity, { timeout: 2500 });
+        } else {
+          setTimeout(initClarity, 1500);
+        }
+      });
+    }
+  }
+})();`,
           }}
         />
       </head>
@@ -129,22 +147,7 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && !(window as unknown as { clarity?: unknown }).clarity) {
-      (function (c: any, l: any, a: any, r: any, i: any, t?: any, y?: any) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "ymelnumr37");
-    }
-  }, []);
+
 
   return (
     <QueryClientProvider client={queryClient}>

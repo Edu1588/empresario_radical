@@ -193,6 +193,8 @@ export function CoverFlowCarousel({
                 <img
                   src={item.img}
                   alt={item.titleLine1}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     position: "absolute",
                     inset: 0,

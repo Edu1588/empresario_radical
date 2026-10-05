@@ -40,22 +40,22 @@ const sintomas = [
   {
     title: "Vendas e Margem",
     text: "Mais vendas com margem errada aumentam o esforço, não necessariamente o lucro.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/6365.jpg"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/6365.jpg"
   },
   {
     title: "Processos e Equipe",
     text: "Mais pessoas sem processos aumentam a estrutura, não necessariamente a produtividade.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/4239672.jpg"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/4239672.jpg"
   },
   {
     title: "Crescimento e Caixa",
     text: "Mais clientes sem controle aumentam o faturamento, mas também o problema de caixa.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/70656.jpg"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/70656.jpg"
   },
   {
     title: "Dependência Central",
     text: "Empresa que depende do dono para tudo até cresce. Mas dificilmente cresce saudável.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/v1788957309/47879.jpg"
+    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/47879.jpg"
   },
 ];
 
@@ -481,7 +481,7 @@ function Landing() {
             </p>
             <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
               {"Seu problema pode não ser falta de vendas.".split(" ").map((w, i) => (
-                <span key={i} className="hero-word mr-[0.25em] inline-block opacity-0">
+                <span key={i} className="hero-word mr-[0.25em] inline-block">
                   {w === "vendas." ? <span className="text-[#e5372b]">vendas.</span> : w}
                 </span>
               ))}
@@ -508,8 +508,13 @@ function Landing() {
             <div className="bg-[#111111] border border-white/10 overflow-hidden rounded-[2rem] p-2">
               <div className="relative w-full aspect-[3/4] rounded-[1.6rem] overflow-hidden">
                 <img
-                  src="https://res.cloudinary.com/ifuatk2z/image/upload/v1788975669/edmar9.png"
+                  src="https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788975669/edmar9.png"
                   alt="Edmar, mentor do Empresário Radical"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width={600}
+                  height={800}
                   className="absolute inset-0 w-full h-full object-cover transform -scale-x-100 object-[left_top]"
                 />
               </div>
@@ -526,7 +531,7 @@ function Landing() {
       <section id="autoridade" className="relative w-full bg-[#111111] text-white py-24 md:py-32 overflow-hidden ">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#111111]/50 z-10" />
-          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/v1788975668/edmar1.png')] bg-cover bg-[position:80%_top] md:bg-center bg-fixed opacity-100 z-0" />
+          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_1200/v1788975668/edmar1.png')] bg-cover bg-[position:80%_top] md:bg-center bg-fixed opacity-100 z-0" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="reveal text-center max-w-3xl mx-auto mb-20">
@@ -631,7 +636,7 @@ function Landing() {
                 <div className="mt-16 grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
           {sintomas.map((s, index) => (
             <article key={index} className="reveal group relative overflow-hidden border border-[#e5372b]/30 aspect-[16/10] md:aspect-[16/9] shadow-2xl">
-              <img src={s.img} alt={`Sintoma 0${index + 1}`} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 ease-out mix-blend-luminosity" />
+              <img src={s.img} alt={`Sintoma 0${index + 1}`} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 ease-out mix-blend-luminosity" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
               
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex flex-col z-10">
@@ -680,6 +685,7 @@ function Landing() {
               <video
                 ref={videoRef}
                 src="https://res.cloudinary.com/ifuatk2z/video/upload/v1788990263/edmarvideo.mp4"
+                preload="none"
                 loop
                 playsInline
                 muted={isMuted}
@@ -813,7 +819,7 @@ function Landing() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-[#111111]/50 md:bg-gradient-to-r md:from-transparent md:via-[#111111]/80 md:to-[#111111] z-10" />
-          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/v1788975667/edmar3.png')] bg-cover bg-left md:bg-[center_left] bg-fixed opacity-100 z-0" />
+          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_1200/v1788975667/edmar3.png')] bg-cover bg-left md:bg-[center_left] bg-fixed opacity-100 z-0" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 lg:gap-24">
@@ -875,7 +881,7 @@ function Landing() {
                 titleLine1: "Gestão", 
                 titleLine2: "Os Fundamentos",
                 desc: "A base sólida para construir uma empresa que não depende de você.",
-                img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=70",
                 ctaText: "Ler Artigo"
               },
               { 
@@ -883,7 +889,7 @@ function Landing() {
                 titleLine1: "Metas", 
                 titleLine2: "Como Estruturar",
                 desc: "Aprenda a definir e cobrar metas que a equipe realmente entende.",
-                img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=70",
                 ctaText: "Assistir Vídeo"
               },
               { 
@@ -891,7 +897,7 @@ function Landing() {
                 titleLine1: "Indicadores", 
                 titleLine2: "Guia Prático",
                 desc: "Baixe a planilha essencial para acompanhar os números que importam.",
-                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=70",
                 ctaText: "Baixar Material"
               },
               { 
@@ -899,7 +905,7 @@ function Landing() {
                 titleLine1: "Liderança", 
                 titleLine2: "O Papel do Líder",
                 desc: "O que significa ser um líder radical em tempos de crescimento.",
-                img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=70",
                 ctaText: "Ler Artigo"
               },
               { 
@@ -907,7 +913,7 @@ function Landing() {
                 titleLine1: "Caixa", 
                 titleLine2: "Protegendo o Lucro",
                 desc: "Como blindar o financeiro e evitar surpresas no fim do mês.",
-                img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=70",
                 ctaText: "Ver Conteúdo"
               }
             ]}
