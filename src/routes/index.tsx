@@ -494,11 +494,11 @@ function Landing() {
               O Empresário Radical vai à raiz do negócio para transformar problemas em decisões e
               decisões em resultado.
             </p>
-            <div className="reveal hero-reveal mt-9 flex flex-wrap gap-3">
-              <AnimatedButton href="#diagnostico" className="btn-red py-4 px-9">
+            <div className="reveal hero-reveal mt-9 flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-3 w-full">
+              <AnimatedButton href="#diagnostico" className="btn-red py-4 px-9 w-full max-w-[280px] sm:max-w-none sm:w-auto justify-center text-center">
                 QUERO ENTENDER MEU CENÁRIO
               </AnimatedButton>
-              <AnimatedButton href="#solucoes" className="btn-blue py-4 px-9">
+              <AnimatedButton href="#solucoes" className="btn-blue py-4 px-9 w-full max-w-[280px] sm:max-w-none sm:w-auto justify-center text-center">
                 Ver soluções
               </AnimatedButton>
             </div>
@@ -758,13 +758,13 @@ function Landing() {
             );
           })}
         </div>
-        <div className="reveal bg-[#0A0A0A] border border-white/10 mt-8 flex flex-col items-start gap-5 rounded-3xl p-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="reveal bg-[#0A0A0A] border border-white/10 mt-8 flex flex-col items-center sm:items-start text-center sm:text-left gap-5 rounded-3xl p-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-lg text-sm text-gray-400">
             {marcados.length > 0
               ? `Você reconheceu sua empresa em ${marcados.length} ${marcados.length === 1 ? "situação" : "situações"}. Talvez seja hora de olhar para a raiz.`
               : "Se você reconheceu sua empresa em uma ou mais situações, talvez seja hora de olhar para a raiz."}
           </p>
-          <AnimatedButton href="#contato" className={`btn-whatsapp w-fit shrink-0 [&>span.invisible]:px-7 [&>span.invisible]:py-3.5 ${marcados.length === 4 ? "animate-shake" : ""}`}>
+          <AnimatedButton href="#contato" className={`btn-whatsapp w-full max-w-[280px] sm:max-w-none sm:w-fit shrink-0 mx-auto sm:mx-0 [&>span.invisible]:px-7 [&>span.invisible]:py-3.5 ${marcados.length === 4 ? "animate-shake" : ""}`}>
             QUERO ENTENDER MEU CENÁRIO
           </AnimatedButton>
         </div>
