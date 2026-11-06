@@ -40,22 +40,22 @@ const sintomas = [
   {
     title: "Vendas e Margem",
     text: "Mais vendas com margem errada aumentam o esforço, não necessariamente o lucro.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/6365.jpg"
+    img: "/images/6365.jpg"
   },
   {
     title: "Processos e Equipe",
     text: "Mais pessoas sem processos aumentam a estrutura, não necessariamente a produtividade.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/4239672.jpg"
+    img: "/images/4239672.jpg"
   },
   {
     title: "Crescimento e Caixa",
     text: "Mais clientes sem controle aumentam o faturamento, mas também o problema de caixa.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/70656.jpg"
+    img: "/images/70656.jpg"
   },
   {
     title: "Dependência Central",
     text: "Empresa que depende do dono para tudo até cresce. Mas dificilmente cresce saudável.",
-    img: "https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1788957309/47879.jpg"
+    img: "/images/47879.jpg"
   },
 ];
 
@@ -508,7 +508,7 @@ function Landing() {
             <div className="bg-[#111111] border border-white/10 overflow-hidden rounded-[2rem] p-2">
               <div className="relative w-full aspect-[3/4] rounded-[1.6rem] overflow-hidden">
                 <img
-                  src="https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_800/v1791236200/edmar9_1.png"
+                  src="/images/edmar9_1.png"
                   alt="Edmar, mentor do Empresário Radical"
                   loading="eager"
                   fetchPriority="high"
@@ -531,7 +531,7 @@ function Landing() {
       <section id="autoridade" className="relative w-full bg-[#111111] text-white py-24 md:py-32 overflow-hidden ">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#111111]/50 z-10" />
-          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_1200/v1791236200/edmar1_1.png')] bg-cover bg-[position:80%_top] md:bg-center bg-fixed opacity-100 z-0" />
+          <div className="absolute inset-0 bg-[url('/images/edmar1_1.png')] bg-cover bg-[position:80%_top] md:bg-center bg-fixed opacity-100 z-0" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="reveal text-center max-w-3xl mx-auto mb-20">
@@ -684,7 +684,7 @@ function Landing() {
             <div className="relative bg-[#0A0A0A] p-2 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 group">
               <video
                 ref={videoRef}
-                src="https://res.cloudinary.com/ifuatk2z/video/upload/v1788990263/edmarvideo.mp4"
+                src="/images/edmarvideo.mp4"
                 preload="none"
                 loop
                 playsInline
@@ -819,7 +819,7 @@ function Landing() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-[#111111]/50 md:bg-gradient-to-r md:from-transparent md:via-[#111111]/80 md:to-[#111111] z-10" />
-          <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ifuatk2z/image/upload/f_auto,q_auto,w_1200/v1788975667/edmar3.png')] bg-cover bg-left md:bg-[center_left] bg-fixed opacity-100 z-0" />
+          <div className="absolute inset-0 bg-[url('/images/edmar3.png')] bg-cover bg-left md:bg-[center_left] bg-fixed opacity-100 z-0" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 lg:gap-24">
